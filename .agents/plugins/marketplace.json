@@ -1,14 +1,14 @@
 {
-  "name": "i-have-adhd",
+  "name": "clear-precise-communication",
   "interface": {
-    "displayName": "I Have ADHD"
+    "displayName": "Clear, Precise Communication"
   },
   "plugins": [
     {
-      "name": "i-have-adhd",
+      "name": "clear-precise-communication",
       "source": {
         "source": "url",
-        "url": "https://github.com/ayghri/i-have-adhd.git",
+        "url": "https://github.com/astral303/clear-precise-communication.git",
         "ref": "main"
       },
       "policy": {

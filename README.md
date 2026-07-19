@@ -1,99 +1,75 @@
-<p align="center">
-  <img src="./logo.png" alt="i-have-adhd" width="140" />
-</p>
-<p align="center">
-  <strong align="center">ADHD-friendly outputs. No ADHD diagnosis needed!</strong>
-</p>
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="License"></a>
-</p>
+# Clear, Precise Communication
 
+AI agent skill for clear, scannable, ADHD-friendly technical writing—without burying the point.
+
+This plugin adds the `clear-precise-communication` skill for Codex and Claude Code. It shapes ordinary conversation and durable writing—documentation, plans, ADRs, changelogs, release and commit text, pull requests, issues, runbooks, reports, code comments, and user-facing copy—for readers with ADHD, interrupted attention, or little time.
+
+> **Prefer conversation-first guidance?** This remix generalizes the original approach for durable writing and removes some strict rules designed for turn-by-turn replies. For the strongest focus on action-first conversational guidance, use Ayoub Ghriss's excellent [i-have-adhd skill](https://github.com/ayghri/i-have-adhd).
 
 ## Install
-
-### Claude Code
-
-```bash
-git clone https://github.com/ayghri/i-have-adhd ./i-have-adhd
-claude plugin marketplace add ./i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
-```
-
-In Claude Code: `/i-have-adhd`.
-
-To disable: `claude plugin disable i-have-adhd` or use `/plugin disable i-have-adhd` from within CC.
 
 ### Codex
 
 ```bash
-codex plugin marketplace add ayghri/i-have-adhd --ref main
-codex plugin add i-have-adhd@i-have-adhd
+codex plugin marketplace add astral303/clear-precise-communication --ref main
+codex plugin add clear-precise-communication@clear-precise-communication
 ```
 
-In Codex: use `$i-have-adhd` when you want the output style applied explicitly. The skill can also be invoked implicitly when Codex sees a task that benefits from action-first, ADHD-friendly output.
+Use `$clear-precise-communication` to invoke the skill explicitly. Its metadata also allows implicit invocation whenever Codex identifies relevant writing.
 
-More in [INSTALL.md](./INSTALL.md).
+### Claude Code
 
-## What it does
+```bash
+git clone https://github.com/astral303/clear-precise-communication.git ./clear-precise-communication
+claude plugin marketplace add ./clear-precise-communication
+claude plugin install clear-precise-communication@clear-precise-communication
+```
 
-A Claude Code skill that stops burying the answer. Action first. Steps numbered. No "Hope this helps!"
+Use `/clear-precise-communication` to invoke the skill.
 
+See [INSTALL.md](./INSTALL.md) for verification, updates, uninstallation, and troubleshooting.
 
 ## What changes
 
+The skill puts the primary value first, exposes state and next actions when they matter, and removes details that slow the reader without helping them act.
 
-<table>
-<tr>
-<td width="50%">
+### Before
 
-## Before
+> We made several updates to the authentication flow, including changes to magic-link handling and its related tests. Most of the work is complete, although there are still a few items that need attention before release. The staging checks passed, but production rollout is waiting on an environment variable from the platform team.
 
-> Great question! Let me think about this. Your auth flow has a few moving pieces: the middleware, the token verification, and the cookie handling. Looking at `src/auth.ts`, the `verifyToken` function (around lines 42-58) seems to be using an older `jsonwebtoken` API. One approach would be to update the package and rewrite that function. After making the change, you'd want to run the auth tests to confirm nothing breaks. By the way, you might also want to look at your dependency versions overall. Hope this helps! Let me know if you want to dig deeper.
+### After
 
-</td>
-
-<td width="50%">
-
-## After
-
-> Run `npm install jsonwebtoken@latest`, then edit `src/auth.ts:42`.
+> Magic-link authentication now passes in staging. Production rollout is blocked on one environment variable from the platform team.
 >
-> 1. Open `src/auth.ts`
-> 2. Replace `verifyToken` (lines 42–58) with the snippet below
-> 3. Run `npm test -- auth.spec.ts`
->
-> Next: paste the first failing line if any test fails.
+> - Complete: implementation and automated tests
+> - Verified: staging login flow
+> - Next owner: platform team
 
-</td>
-</tr>
-</table>
+## Core rules
 
+1. Lead with the primary value.
+2. Design for scanning.
+3. Make starting easy and steps bounded.
+4. Externalize current state, dependencies, and next actions.
+5. Suppress tangents.
+6. Give concrete time estimates when time matters.
+7. Make progress and outcomes visible.
+8. Describe errors matter-of-factly.
+9. Keep lists focused and prioritized.
+10. Remove preambles, repeated recaps, and generic closers.
 
-## The rules
+Read the complete guidance in [SKILL.md](./skills/clear-precise-communication/SKILL.md).
 
-10 rules. Full text in [SKILL.md](./skills/i-have-adhd/SKILL.md).
+## Customize the skill
 
-1. Lead with the next action.
-2. Number multi-step tasks.
-3. End with one concrete next step.
-4. Suppress tangents.
-5. Restate state every turn.
-6. Specific time estimates (minutes, not "a bit").
-7. Make wins visible.
-8. Matter-of-fact errors.
-9. Cap lists at 5 items.
-10. No preamble. No recap. No closers.
+Edit `skills/clear-precise-communication/SKILL.md`, then start a new session or re-invoke the skill so the revised instructions enter fresh context.
 
-## Tune it
+## Attribution
 
-Edit `skills/i-have-adhd/SKILL.md`. Re-invoke `/i-have-adhd`.
+This repository is a remix of Ayoub Ghriss's excellent [i-have-adhd skill](https://github.com/ayghri/i-have-adhd), which established the original ADHD-friendly approach to action-oriented AI responses. The upstream Codex plugin structure was contributed by Seongho Bae. The original copyright notice remains in [LICENSE](./LICENSE).
 
-## Credits
-
-Loosely based on *The Adult ADHD Tool Kit* by J. Russell Ramsay and Anthony L. Rostain. Adapted for how an LLM should respond, not how a human should organize their day.
+The upstream project drew from *The Adult ADHD Tool Kit* by J. Russell Ramsay and Anthony L. Rostain, adapting its ideas for AI-generated communication.
 
 ## License
 
-MIT.
-
-Star ⭐ if it saved you one scroll past one "Great question!"
+[MIT](./LICENSE)

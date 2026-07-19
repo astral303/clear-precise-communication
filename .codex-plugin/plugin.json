@@ -1,39 +1,39 @@
 {
-  "name": "i-have-adhd",
-  "version": "0.1.0",
-  "description": "ADHD-friendly output shaping for Codex: action first, numbered steps, no tangents, and visible progress.",
+  "name": "clear-precise-communication",
+  "version": "0.2.0",
+  "description": "AI agent skill for clear, scannable, ADHD-friendly technical writing—without burying the point.",
   "author": {
-    "name": "Ayoub G.",
-    "url": "https://github.com/ayghri"
+    "name": "Oksana Rekutina",
+    "url": "https://github.com/astral303"
   },
-  "homepage": "https://github.com/ayghri/i-have-adhd",
-  "repository": "https://github.com/ayghri/i-have-adhd",
+  "homepage": "https://github.com/astral303/clear-precise-communication",
+  "repository": "https://github.com/astral303/clear-precise-communication",
   "license": "MIT",
   "keywords": [
+    "communication",
+    "writing",
     "adhd",
-    "output-style",
+    "accessibility",
     "productivity",
     "skills",
     "codex"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "I Have ADHD",
-    "shortDescription": "Action-first output for ADHD readers",
-    "longDescription": "Shape Codex responses for an ADHD reader by leading with the next action, numbering multi-step work, suppressing tangents, restating state, and making progress visible.",
-    "developerName": "Ayoub G.",
+    "displayName": "Clear, Precise Communication",
+    "shortDescription": "Clear writing for busy and interrupted readers",
+    "longDescription": "Shape conversations and durable engineering artifacts for fast scanning, easy action, and quick recovery after interruption.",
+    "developerName": "Oksana Rekutina",
     "category": "Productivity",
     "capabilities": [
       "Instructions"
     ],
-    "websiteURL": "https://github.com/ayghri/i-have-adhd",
+    "websiteURL": "https://github.com/astral303/clear-precise-communication",
     "defaultPrompt": [
-      "Use i-have-adhd for this task.",
-      "Make this answer action-first and easy to execute.",
-      "Review this response for ADHD-friendly structure."
+      "Make this response clear and easy to scan.",
+      "Rewrite this artifact for fast, precise reading.",
+      "Review this text for attention-aware structure."
     ],
-    "brandColor": "#2563EB",
-    "composerIcon": "./logo.png",
-    "logo": "./logo.png"
+    "brandColor": "#2563EB"
   }
 }

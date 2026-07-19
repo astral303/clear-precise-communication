@@ -1,14 +1,14 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "i-have-adhd",
-  "description": "Shape Claude Code output for an ADHD reader. Action-first, numbered steps, no tangents.",
+  "name": "clear-precise-communication",
+  "description": "AI agent skill for clear, scannable, ADHD-friendly technical writing—without burying the point.",
   "owner": {
-    "name": "Ayoub G."
+    "name": "Oksana Rekutina"
   },
   "plugins": [
     {
-      "name": "i-have-adhd",
-      "description": "Action-first, ADHD-friendly output shaping for Claude Code.",
+      "name": "clear-precise-communication",
+      "description": "AI agent skill for clear, scannable, ADHD-friendly technical writing—without burying the point.",
       "source": "./",
       "category": "productivity"
     }

@@ -1,98 +1,93 @@
-# Install i-have-adhd
+# Install Clear, Precise Communication
 
-A Claude Code plugin. One skill inside.
+Install the plugin for Codex or Claude Code, then verify that `clear-precise-communication` appears in the relevant plugin list.
 
-## TL;DR
+## Codex
 
-### Claude Code
-
-```bash
-git clone https://github.com/ayghri/i-have-adhd ./i-have-adhd
-claude plugin marketplace add ./i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
-```
-
-Open Claude Code, type `/i-have-adhd`.
-
-To disable: `claude plugin disable i-have-adhd` (or `/plugin disable i-have-adhd` from within Claude Code). Re-enable later with `enable` instead of `disable`.
-
-### Codex
+### Install
 
 ```bash
-codex plugin marketplace add ayghri/i-have-adhd --ref main
-codex plugin add i-have-adhd@i-have-adhd
+codex plugin marketplace add astral303/clear-precise-communication --ref main
+codex plugin add clear-precise-communication@clear-precise-communication
 ```
 
-In Codex, type `$i-have-adhd` to request the output style explicitly.
+Invoke the skill explicitly with `$clear-precise-communication`. The skill can also activate implicitly for relevant writing tasks.
 
-## Verify
-
-### Claude Code
-
-```bash
-claude plugin list
-```
-
-Look for `i-have-adhd  (enabled)`.
-
-### Codex
+### Verify
 
 ```bash
 codex plugin list
 ```
 
-Look for `i-have-adhd` in the configured `i-have-adhd` marketplace.
+The list should include `clear-precise-communication` from the `clear-precise-communication` marketplace.
 
-## Update
-
-### Claude Code
+### Update
 
 ```bash
-cd ./i-have-adhd && git pull
+codex plugin marketplace upgrade clear-precise-communication
+codex plugin remove clear-precise-communication
+codex plugin add clear-precise-communication@clear-precise-communication
 ```
 
-The marketplace re-reads the local checkout. Next Claude Code session picks up changes.
+Start a new thread after reinstalling so Codex loads the updated skill.
 
-### Codex
+### Uninstall
 
 ```bash
-codex plugin marketplace upgrade i-have-adhd
-codex plugin remove i-have-adhd
-codex plugin add i-have-adhd@i-have-adhd
+codex plugin remove clear-precise-communication
+codex plugin marketplace remove clear-precise-communication
 ```
 
-## Uninstall
+## Claude Code
 
-### Claude Code
+### Install
 
 ```bash
-claude plugin uninstall i-have-adhd
-claude plugin marketplace remove i-have-adhd
+git clone https://github.com/astral303/clear-precise-communication.git ./clear-precise-communication
+claude plugin marketplace add ./clear-precise-communication
+claude plugin install clear-precise-communication@clear-precise-communication
 ```
 
-### Codex
+Invoke the skill with `/clear-precise-communication`.
+
+### Verify
 
 ```bash
-codex plugin remove i-have-adhd
-codex plugin marketplace remove i-have-adhd
+claude plugin list
 ```
 
-## Always-on (optional)
+The list should show `clear-precise-communication` as enabled.
 
-To skip `/i-have-adhd` and apply the rules from message one, add to `~/.claude/CLAUDE.md`:
+### Update
 
-```markdown
-## Output style
+```bash
+cd ./clear-precise-communication
+git pull
+```
 
-Always follow the rules in the `i-have-adhd` skill: action-first, numbered steps, no preamble, no closers, state restated each turn.
+The marketplace reads the local checkout. Start a new Claude Code session after updating.
+
+### Uninstall
+
+```bash
+claude plugin uninstall clear-precise-communication
+claude plugin marketplace remove clear-precise-communication
 ```
 
 ## Troubleshooting
 
-**`/i-have-adhd` not in autocomplete.** Restart Claude Code. The plugin index is read at startup.
+### The skill is missing from autocomplete
 
-**`claude plugin marketplace add` fails.** Point at the repo root, not at `.claude-plugin/`. The path must contain `.claude-plugin/marketplace.json`.
+Restart Codex or Claude Code. Plugin and skill indexes are loaded at startup.
 
-**Skill activates but model still preambles.** Open a new session. Old context may carry. If it still drifts, tighten the rule wording in `skills/i-have-adhd/SKILL.md`, then re-invoke.
+### Claude Code cannot add the marketplace
 
-**Want different rules.** Edit `skills/i-have-adhd/SKILL.md`. Re-invoke `/i-have-adhd` (or restart) and the new rules apply.
+Point the command at the repository root containing `.claude-plugin/marketplace.json`, not at `.claude-plugin/` itself.
+
+### Updated rules do not appear
+
+Start a new thread or session. Existing context can retain the previous skill instructions.
+
+### The writing still feels too dense
+
+Edit `skills/clear-precise-communication/SKILL.md`, tighten the relevant rule, and invoke the skill again in fresh context.
