@@ -24,40 +24,45 @@ claude plugin marketplace remove clear-precise-communication
 
 ### Install
 
-Copy or symlink the one-file rule into the agent's global standing-instructions
-directory, then add a session-start pointer.
+Codex's standing-instructions file is `~/.codex/AGENTS.md`. It does not scan a
+rules directory for writing guidance: `~/.codex/rules` is permission policy.
 
-From the repository root, for Codex:
+Symlink or copy the one-file rule next to `AGENTS.md`, then add a session-start
+pointer. From the repository root:
 
 ```powershell
 $repo = (Get-Location).Path
-$dest = Join-Path $env:USERPROFILE ".codex\AGENTS.d"
-New-Item -ItemType Directory -Force -Path $dest | Out-Null
-Copy-Item (Join-Path $repo "rules\clear-precise-communication.md") (Join-Path $dest "clear-precise-communication.md") -Force
+$link = Join-Path $env:USERPROFILE ".codex\clear-precise-communication.md"
+if (Test-Path $link) { Remove-Item $link }
+New-Item -ItemType SymbolicLink -Path $link -Target (Join-Path $repo "rules\clear-precise-communication.md")
 ```
 
 ```bash
-mkdir -p ~/.codex/AGENTS.d
-cp rules/clear-precise-communication.md ~/.codex/AGENTS.d/clear-precise-communication.md
+ln -sfn "$(pwd)/rules/clear-precise-communication.md" ~/.codex/clear-precise-communication.md
 ```
 
-Add this stanza to `~/.codex/AGENTS.md` if it is not already there. Codex
-`~/.codex/rules` is permission policy and will not load this file.
+If the host cannot create a file symlink, copy the file instead.
+
+Add this stanza to `~/.codex/AGENTS.md` if it is not already there:
 
 ```markdown
 ## Mandatory ambient communication and writing guidance
 
-At the beginning of each session, read `~/.codex/AGENTS.d/clear-precise-communication.md` completely and apply it throughout the session.
+At the beginning of each session, read `~/.codex/clear-precise-communication.md` completely and apply it throughout the session.
 
 Do not reread it during the same session, unless immediately after a compaction.
 ```
+
+There is no `~/.codex/AGENTS.d` in Codex. If you already keep several standing
+files in a directory of your own and point `AGENTS.md` at them, put this file
+there instead and use that path in the stanza.
 
 For another agent, drop the same file into its global instructions directory
 and add an equivalent session-start pointer.
 
 ### Verify
 
-The file `~/.codex/AGENTS.d/clear-precise-communication.md` exists, and
+`~/.codex/clear-precise-communication.md` exists (symlink or copy), and
 `~/.codex/AGENTS.md` names it. Start a new Codex thread. The writing guidance
 should apply without `$clear-precise-communication` or any other invocation.
 
@@ -67,13 +72,13 @@ should apply without `$clear-precise-communication` or any other invocation.
 git pull
 ```
 
-Re-copy `rules/clear-precise-communication.md` into `AGENTS.d` if that file is
-not a symlink. Start a new thread.
+A symlink already tracks this checkout. Re-copy the file if you installed it
+as a copy. Start a new thread.
 
 ### Uninstall
 
-Delete `~/.codex/AGENTS.d/clear-precise-communication.md` and remove the stanza
-from `~/.codex/AGENTS.md`.
+Delete `~/.codex/clear-precise-communication.md` and remove the stanza from
+`~/.codex/AGENTS.md`.
 
 ## Claude Code
 
@@ -146,7 +151,7 @@ rm ~/.claude/rules/clear-precise-writing
 ### Codex reloads the writing rules on every turn
 
 The repo is installed as a skill or plugin. Remove it (commands at the top of
-this file) and use `AGENTS.d` plus the `AGENTS.md` stanza instead.
+this file) and use a sibling file plus an `AGENTS.md` stanza instead.
 
 ### Claude still writes inflated PR or comment text
 
@@ -164,4 +169,4 @@ in this checkout.
 
 Edit `rules/clear-precise-communication.md`, copy the body into
 `claude-rules/clear-precise-communication.md` (keep the always-on preamble),
-re-copy to `AGENTS.d` if needed, and start a new session.
+re-copy to `~/.codex/` if that file is not a symlink, and start a new session.

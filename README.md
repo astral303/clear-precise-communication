@@ -18,8 +18,8 @@ A skill is the wrong delivery mechanism for both agents this repo targets.
 
 - **Codex** obeys skill frontmatter. A description that says to use the skill
   for every conversation loads the full text on every turn. Standing text
-  belongs in `~/.codex/AGENTS.md` plus `~/.codex/AGENTS.d/`, not in a skill.
-  (`~/.codex/rules` is permission policy, not writing guidance.)
+  belongs in `~/.codex/AGENTS.md`, which can point at a sibling file, not in a
+  skill. (`~/.codex/rules` is permission policy, not writing guidance.)
 - **Claude Code** often does not invoke skills. Standing text belongs in
   `~/.claude/rules/`, which loads at session start.
 
@@ -33,30 +33,30 @@ See [INSTALL.md](./INSTALL.md) for verification, updates, and uninstallation.
 
 ### Codex and other agents that obey global instructions
 
-Copy or symlink [`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md)
-into the agent's global standing-instructions directory, then add a session-start
-pointer so the file is read once.
+Codex's standing-instructions file is `~/.codex/AGENTS.md`. Symlink or copy
+[`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md)
+next to it, then add a session-start pointer so Codex reads it once.
 
-Codex (`~/.codex/AGENTS.d/` plus a stanza in `~/.codex/AGENTS.md`):
+From the repository root:
 
 ```powershell
 $repo = (Get-Location).Path
-$dest = Join-Path $env:USERPROFILE ".codex\AGENTS.d"
-New-Item -ItemType Directory -Force -Path $dest | Out-Null
-Copy-Item (Join-Path $repo "rules\clear-precise-communication.md") (Join-Path $dest "clear-precise-communication.md") -Force
+$link = Join-Path $env:USERPROFILE ".codex\clear-precise-communication.md"
+if (Test-Path $link) { Remove-Item $link }
+New-Item -ItemType SymbolicLink -Path $link -Target (Join-Path $repo "rules\clear-precise-communication.md")
 ```
 
 ```bash
-mkdir -p ~/.codex/AGENTS.d
-cp rules/clear-precise-communication.md ~/.codex/AGENTS.d/clear-precise-communication.md
+ln -sfn "$(pwd)/rules/clear-precise-communication.md" ~/.codex/clear-precise-communication.md
 ```
 
-Add this stanza to `~/.codex/AGENTS.md` if it is not already there:
+If the host cannot create a file symlink, copy the file instead. Add this
+stanza to `~/.codex/AGENTS.md` if it is not already there:
 
 ```markdown
 ## Mandatory ambient communication and writing guidance
 
-At the beginning of each session, read `~/.codex/AGENTS.d/clear-precise-communication.md` completely and apply it throughout the session.
+At the beginning of each session, read `~/.codex/clear-precise-communication.md` completely and apply it throughout the session.
 
 Do not reread it during the same session, unless immediately after a compaction.
 ```
@@ -141,9 +141,8 @@ Each Claude file restates that comments, drafts, and test names are in scope.
 
 Edit [`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md).
 Copy the body into `claude-rules/clear-precise-communication.md`, keeping the
-always-on preamble on the Claude copy. Re-copy into `~/.codex/AGENTS.d/` if
-that file is not a symlink. Start a new session so the revised text enters
-fresh context.
+always-on preamble on the Claude copy. Re-copy into `~/.codex/` if that file
+is not a symlink. Start a new session so the revised text enters fresh context.
 
 ## Attribution
 
