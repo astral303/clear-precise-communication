@@ -1,9 +1,9 @@
----
-name: clear-precise-communication
-description: Write or revise all written communication for fast, low-friction reading by people with ADHD, interrupted attention, or little time. Use for every user-facing response and durable artifact, including ordinary conversation, documentation, plans, specifications, ADRs, changelogs, release or commit text, pull requests, issues, runbooks, reports, code comments, and user-facing copy.
----
-
 # Clear, Precise Communication
+
+This file is a Claude Code user rule. It loads at session start. It is not a
+skill. Do not wait for `/clear-precise-communication`. It applies to every
+durable artifact listed in `always-on-scope.md`, including comments, drafts,
+test names, and PR text drafted in chat.
 
 Shape every response and written artifact so readers with ADHD or overloaded attention can find the value, act when needed, and resume after interruption. Prefer direct, operational writing over academic framing or generic “good prose” advice.
 
@@ -31,6 +31,7 @@ Keep a qualification with the lede only when it materially changes the main poin
 
 - Use descriptive headings that summarize their sections.
 - Put each paragraph's main point in its first sentence and keep the paragraph focused.
+- Use bullets when presenting a series of points, so the eye can jump point to point easily.
 - Use bullets for parallel facts and numbered lists for ordered work.
 - Use bold text or tables only when they make decisive information easier to find.
 - Make the title, headings, and opening sentences provide a useful map on their own.
