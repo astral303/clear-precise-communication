@@ -38,6 +38,7 @@ Search the artifact (and the diff, for comments and test names) for:
 | `What `, `Where `, `Why `, `Whether `, `How `, `Which ` at the start of a heading or comment | Noun phrase or short declarative |
 | ` is what ` | Cleft: rewrite as `X verbs Y` |
 | `go with`, `goes with`, `went`, `takes`, `took`, `goes` as stand-ins for delete/remove/count/include | Literal verb |
+| `say`, `says`, `said`, `tell`, `tells`, `name how many` for software output | *shows* / *reports* / *prints* / *names* |
 | `elegant`, `robust`, `comprehensive`, `carefully`, `fully`, `powerful`, `seamless`, `load-bearing`, `bulletproof` | Delete or replace with the condition |
 | `ensures`, `guarantees`, `importantly`, `worth noting` | Delete or replace with the observable |
 | `always`, `never`, `only`, `everything else`, `no matter what`, `mechanical`, `low risk`, `can't regress`, `safe` in reviewer-facing text | Condition, depth, or deletion |
