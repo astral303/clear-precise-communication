@@ -52,7 +52,8 @@ with its full behavior, including fallbacks.
 
 Cut mechanism trivia the user cannot act on (gutter markers, internal metadata
 field names) unless the user must know it to use the change. User-visible
-symptom only in the parent; mechanism, if needed, as a sub-bullet.
+symptom only in the parent; mechanism, if needed, as a sub-bullet. A
+sub-bullet must add a fact the parent cannot carry, or it is cut.
 
 ## Verify against what shipped
 

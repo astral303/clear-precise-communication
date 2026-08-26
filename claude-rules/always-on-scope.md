@@ -75,6 +75,9 @@ These have been offered and are rejected:
 | "This is a heading rule, and I was writing a comment." | The banned construction is banned wherever it appears. |
 | "The sentence is true." | Truth is not usefulness. Cut a true sentence that does not change what the reader does. |
 | "I'll structure it in a later pass." | Structure the first draft. |
+| "Loaded rules do not apply themselves while I draft." | They bind the first draft. A later scan is not a substitute. |
+| "I grepped the banned words / ran a keyword pass." | That is step 3 of `final-scan.md` only. The other steps are reads. Run every step. |
+| "The artifact shipped in the same batch as code edits." | Scan it anyway. A code batch is not a reason to skip the writing check. |
 | "This is just a draft / plan / reviewer note." | Durable text uses the same register as shipped docs. |
 
 ## Sibling rules in this directory
@@ -89,15 +92,18 @@ These have been offered and are rejected:
 - `changelog-entry-style.md` — change class, standalone parent summary, verb + symptom.
 - `changelog-impact-claims.md` — ratios a reader can reuse; no correctness theater.
 - `literal-verbs-not-idioms.md` — name the operation; do not analogize it.
+- `one-term-per-concept.md` — one name for one concept; no synonyms for variety.
+- `no-rhetorical-appositives.md` — no theme-then-examples dash lists; the things are the subject.
 - `reviewer-facing-describe-dont-advocate.md` — Decision → Reason → Boundary; no verdicts.
 - `comments-earn-their-place.md` — structure or a test first; comments only for what code cannot say.
-- `final-scan.md` — search the artifact for banned patterns before sending.
+- `final-scan.md` — every step of the post-write scan, not only the keyword pass.
 
 ## Order of work
 
 1. Identify the artifact type. Use the matching sibling rule and the shared
    rules (tone, labels, reader, verbs, scan).
 2. Draft in the required shape: noun-phrase headings, bullets or tables for
-   parallel facts, user-visible effect first.
+   parallel facts, user-visible effect first. Pick one term per concept and
+   reuse it verbatim.
 3. Run `final-scan.md` on the text you are about to send. Not on a later
    revision. On this one.

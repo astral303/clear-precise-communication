@@ -47,7 +47,8 @@ when the rule is generic.
 
 ## Prefer the words on screen
 
-Use the label the user sees, not the identifier in the code.
+Use the label the user sees, not the identifier in the code. Once you pick a
+term, reuse it verbatim; see `one-term-per-concept.md`.
 
 Cut engineer-only vocabulary from user text unless the user must type it:
 `bounded`, `resolved`, `in force`, `the lookup`, `canonical`, `materialize`,

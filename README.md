@@ -129,7 +129,9 @@ Read the complete one-file rule in [`rules/clear-precise-communication.md`](./ru
 - Write from the reader's next action, not as a narration of the diff
 - Scannable PR structure: tables for grids, one-fact bullets
 - Title and opening name the user-visible effect
-- Literal verbs, not idioms (`deleted`, not `go with it`)
+- Literal verbs, not idioms (`deleted`, not `go with it`; `reports`, not `says`)
+- One term per concept; no synonyms for variety
+- No rhetorical appositives (`X — a …, a …, a … —`); the things are the subject
 - Changelog: change class, verb + symptom, ratios a reader can reuse
 - Describe work to a reviewer; do not advocate for it
 - Comments only for what code cannot say; structure or a test first
