@@ -91,9 +91,9 @@ Memory files.
 If you already have a short `~/.claude/rules/documentation-tone.md`, remove it.
 `claude-rules/documentation-tone.md` replaces it.
 
-[`claude-rules/`](./claude-rules/) is about 20k Opus 5 tokens.
+[`claude-rules/`](./claude-rules/) is 19.9k Opus 5 tokens.
 [`claude-rules-economy/`](./claude-rules-economy/) is the same constraints
-with less repetition (about 8k). Junction that directory instead when the
+with less repetition (8.9k). Junction that directory instead when the
 context budget is tight. The full set is harder for Claude to ignore.
 
 ## What changes

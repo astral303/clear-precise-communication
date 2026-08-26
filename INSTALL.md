@@ -5,8 +5,8 @@ This repo is standing writing rules, not a plugin and not a skill.
 - **Codex and other agents that obey global instructions:** one file,
   [`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md).
 - **Claude Code:** [`claude-rules/`](./claude-rules/) in `~/.claude/rules/`
-  (~20k Opus 5 tokens), or [`claude-rules-economy/`](./claude-rules-economy/)
-  (~8k) when the context budget is tight.
+  (19.9k Opus 5 tokens), or [`claude-rules-economy/`](./claude-rules-economy/)
+  (8.9k) when the context budget is tight.
 
 Do not add this repo as a Codex or Claude plugin. Skill frontmatter that says
 to use the guidance on every conversation makes Codex reload the full text on
@@ -119,7 +119,7 @@ If `~/.claude/rules/documentation-tone.md` already exists as a short file,
 remove it so it does not compete with `claude-rules/documentation-tone.md`.
 
 To install the shorter set instead, point the junction or symlink at
-`claude-rules-economy/` (~8k Opus 5 tokens instead of ~20k). Same
+`claude-rules-economy/` (8.9k Opus 5 tokens instead of 19.9k). Same
 constraints, less repetition. Use `claude-rules/` when the budget allows.
 
 Count either directory with:
