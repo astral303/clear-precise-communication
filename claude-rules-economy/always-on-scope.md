@@ -47,10 +47,13 @@ force whether or not anyone invoked a skill.
 
 - `clear-precise-communication.md` — ten scanning rules
 - `documentation-tone.md` — describe; do not sell or inflate
-- `noun-phrase-labels-not-questions.md` — noun-phrase labels
+- `noun-phrase-labels-not-questions.md` — noun-phrase labels, no What/Where/Why openers
 - `write-from-the-reader.md` — reader's next action, not the diff
-- `pull-requests.md` — user-visible effect first; scannable; no machine state
-- `changelog.md` — change class, verb + symptom, ratios
+- `pr-text-leads-with-the-bug.md` — user-visible effect first
+- `pr-text-scannable-structure.md` — tables for grids, one-fact bullets
+- `pr-bodies-are-permanent-records.md` — facts about the change; no machine state
+- `changelog-entry-style.md` — change class, verb + symptom
+- `changelog-impact-claims.md` — ratios; no correctness theater
 - `literal-verbs-not-idioms.md` — name the operation
 - `one-term-per-concept.md` — one name per concept
 - `no-rhetorical-appositives.md` — no theme-then-examples dash lists

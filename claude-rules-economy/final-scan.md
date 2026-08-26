@@ -54,8 +54,8 @@ the next line of code, delete it.
 
 ## 6. Closed-excuse check
 
-If you only ran step 3, you have not scanned. Comments, changelogs, and test
-names are in scope. See `always-on-scope.md`.
+If you are about to send because it is "only a comment / changelog / test
+name", stop. Those are in scope. If you only ran step 3, you have not scanned.
 
 ## Done when
 
