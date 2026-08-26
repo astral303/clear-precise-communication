@@ -8,13 +8,13 @@ labels, short sentences, no rhetorical questions, no talk-stage framing.
 
 ## Scope
 
-Every durable artifact: PR headings, issue headings, changelog headings, README
+Every durable artifact: MR headings, issue headings, changelog headings, README
 headings, ADR headings, plan headings, design-doc headings, reviewer-guide
 headings, commit-body headings, `///` doc comments, `//` comments, and any
 other label that introduces a block of text.
 
 **This is not a headings-only rule.** The banned construction is banned in
-comments, doc comments, and sentences. Reading it as "PR headings only" is how
+comments, doc comments, and sentences. Reading it as "MR headings only" is how
 it was ignored on the second offence.
 
 ## Required shape

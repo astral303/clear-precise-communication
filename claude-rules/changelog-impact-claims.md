@@ -9,7 +9,7 @@ branch nobody reaches, pushes the facts that matter further down.
 
 ## Scope
 
-Performance entries, migration-cost entries, and any changelog or PR sentence
+Performance entries, migration-cost entries, and any changelog or MR sentence
 that claims impact, speed, size, or correctness. User docs that cite
 benchmarks follow the same rules.
 

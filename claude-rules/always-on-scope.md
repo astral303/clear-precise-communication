@@ -16,7 +16,7 @@ the list that follows. They are not a skill. Do not wait to be asked.
 
 Every durable artifact, including text you draft in chat and later paste:
 
-- pull request titles and bodies
+- merge request titles and descriptions
 - commit subjects and bodies
 - issues and review comments
 - changelogs and release notes
@@ -86,9 +86,9 @@ These have been offered and are rejected:
 - `documentation-tone.md` — describe; do not sell, celebrate, or inflate.
 - `noun-phrase-labels-not-questions.md` — labels are noun phrases, not questions or What/Where/Why openers.
 - `write-from-the-reader.md` — write for the reader's next action, not as a narration of the diff.
-- `pr-text-leads-with-the-bug.md` — title and opening name the user-visible problem or effect.
-- `pr-text-scannable-structure.md` — tables for grids, one-fact bullets, no prose restating bullets.
-- `pr-bodies-are-permanent-records.md` — facts about the change only; no machine state, no advice.
+- `mr-text-leads-with-the-bug.md` — title and opening name the user-visible problem or effect.
+- `mr-text-scannable-structure.md` — tables for grids, one-fact bullets, no prose restating bullets.
+- `mr-bodies-are-permanent-records.md` — facts about the change only; no machine state, no advice.
 - `changelog-entry-style.md` — change class, standalone parent summary, verb + symptom.
 - `changelog-impact-claims.md` — ratios a reader can reuse; no correctness theater.
 - `literal-verbs-not-idioms.md` — name the operation; do not analogize it.

@@ -2,8 +2,11 @@
 
 Standing writing rules for coding agents. Not a skill.
 
+This branch (`experiment/gitlab-mr`) uses merge-request wording for GitLab.
+It is an experiment; `main` keeps pull-request wording.
+
 They shape ordinary replies and durable writing—documentation, plans, ADRs,
-changelogs, release and commit text, pull requests, issues, runbooks, reports,
+changelogs, release and commit text, merge requests, issues, runbooks, reports,
 code comments, and user-facing copy—for readers with ADHD, interrupted
 attention, or little time.
 
@@ -67,7 +70,7 @@ Do not install this repo as a Codex plugin or skill.
 
 Copy or junction [`claude-rules/`](./claude-rules/) into `~/.claude/rules/` so
 the files load at session start with no invocation. They have no `paths:`
-frontmatter: a PR body drafted in chat still matches.
+frontmatter: an MR description drafted in chat still matches.
 
 From the repository root:
 
@@ -132,7 +135,7 @@ Read the complete one-file rule in [`rules/clear-precise-communication.md`](./ru
 
 - Noun-phrase labels, not question headings or `What`/`Where`/`Why` comment openers
 - Write from the reader's next action, not as a narration of the diff
-- Scannable PR structure: tables for grids, one-fact bullets
+- Scannable MR structure: tables for grids, one-fact bullets
 - Title and opening name the user-visible effect
 - Literal verbs, not idioms (`deleted`, not `go with it`; `reports`, not `says`)
 - One term per concept; no synonyms for variety

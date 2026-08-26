@@ -2,7 +2,7 @@
 
 `Wrapped text — a reply, a result, a shell command — now reflows…` announces
 a category, pauses, illustrates, then delivers the verb. The `a …, a …, a …`
-is pulpit rhythm. Neither belongs in a changelog, PR, commit, or doc sentence.
+is pulpit rhythm. Neither belongs in a changelog, MR, commit, or doc sentence.
 
 This does not ban the em-dash. It bans using the dash as stage directions:
 pause, enumerate, resume.

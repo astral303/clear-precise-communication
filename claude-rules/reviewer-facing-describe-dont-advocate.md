@@ -1,6 +1,6 @@
 # Reviewer-facing writing: describe, do not advocate
 
-When writing anything a third party reads to **evaluate** work — PR
+When writing anything a third party reads to **evaluate** work — MR
 descriptions, reviewer guides, self-review line comments, design docs,
 code-review replies — describe the code. Do not argue for it.
 
@@ -10,10 +10,10 @@ enough; the reader draws the conclusion.
 
 ## Scope
 
-PR bodies, reviewer guides, self-review comments, design docs, review replies,
+MR descriptions, reviewer guides, self-review comments, design docs, review replies,
 and any comment that explains a choice to a future reader.
 
-This is not "PRs only". A design doc that sells the implementation is in
+This is not "MRs only". A design doc that sells the implementation is in
 violation. A line comment that says the deferral is safe is in violation.
 
 ## Structure each explanation
@@ -42,7 +42,7 @@ A line comment explains specific code that would otherwise look arbitrary,
 surprising, or wrong. See `comments-earn-their-place.md` for whether the
 comment earns its place at all.
 
-Overlap with the PR description is acceptable when inline placement materially
+Overlap with the MR description is acceptable when inline placement materially
 reduces review effort. The goal is putting context where the reviewer needs
 it, not zero repetition.
 

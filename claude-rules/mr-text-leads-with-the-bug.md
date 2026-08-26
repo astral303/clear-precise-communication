@@ -1,18 +1,18 @@
-# PR text leads with the user-visible change
+# MR text leads with the user-visible change
 
-A PR title names what the user sees fixed or changed, never the mechanism. The
-body opens with the problem in the reader's terms, then the after-state, then
-cause and fix.
+An MR title names what the user sees fixed or changed, never the mechanism.
+The description opens with the problem in the reader's terms, then the
+after-state, then cause and fix.
 
 The same order applies to the commit subject.
 
 ## Scope
 
-Pull request titles and bodies, commit subjects and bodies, issue titles that
-report a defect, and changelog parent bullets for fixes. Comments that explain
-a bugfix follow the same order: symptom first, mechanism second.
+Merge request titles and descriptions, commit subjects and bodies, issue
+titles that report a defect, and changelog parent bullets for fixes. Comments
+that explain a bugfix follow the same order: symptom first, mechanism second.
 
-This is not a "bug tickets only" rule. A feature PR still leads with the
+This is not a "bug tickets only" rule. A feature MR still leads with the
 user-visible effect, not the refactor that enabled it.
 
 ## Title
@@ -26,7 +26,7 @@ user-visible effect, not the refactor that enabled it.
 If a reader who never opened the diff cannot tell what improved, the title is
 wrong.
 
-## Body order
+## Description order
 
 1. **The bug** (or **The change**, for a feature): the user-visible problem or
    effect, in the reader's terms.

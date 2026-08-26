@@ -3,7 +3,7 @@
 This file is a Claude Code user rule. It loads at session start. It is not a
 skill. Do not wait for `/clear-precise-communication`. It applies to every
 durable artifact listed in `always-on-scope.md`, including comments, drafts,
-test names, and PR text drafted in chat.
+test names, and MR descriptions drafted in chat.
 
 Shape every response and written artifact so readers with ADHD or overloaded attention can find the value, act when needed, and resume after interruption. Prefer direct, operational writing over academic framing or generic “good prose” advice.
 
@@ -98,7 +98,7 @@ Use only the structure the artifact needs:
 - Documentation or runbook: purpose, prerequisites, steps, verification, troubleshooting. In code comments, explain non-obvious rationale or constraints rather than narrating code.
 - Plan: objective, current state, ordered work, dependencies, milestones, completion criteria.
 - Specification or decision record: requirement or decision, context, alternatives when relevant, consequences.
-- Pull request or commit text: problem or motivation, approach, impact, validation, risks or follow-ups.
+- Merge request or commit text: problem or motivation, approach, impact, validation, risks or follow-ups.
 - Changelog or release note: change, user impact, compatibility or migration information.
 - Issue, status, or incident report: current condition, impact, evidence or cause, mitigation, next decision or follow-up.
 

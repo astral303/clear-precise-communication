@@ -85,7 +85,7 @@ Delete `~/.codex/clear-precise-communication.md` and remove the stanza from
 
 Claude Code loads every `*.md` file under `~/.claude/rules/` recursively at
 session start, unless the file has `paths:` frontmatter. These files have none,
-so they apply to chat-drafted PR bodies, comments, and changelogs, not only to
+so they apply to chat-drafted MR descriptions, comments, and changelogs, not only to
 matching paths.
 
 Do not put a README in the linked directory: Claude would load it as a rule.
@@ -165,10 +165,10 @@ rm ~/.claude/rules/clear-precise-writing
 The repo is installed as a skill or plugin. Remove it (commands at the top of
 this file) and use a sibling file plus an `AGENTS.md` stanza instead.
 
-### Claude still writes inflated PR or comment text
+### Claude still writes inflated MR or comment text
 
 Confirm the rules loaded with `/context`. Do not add `paths:` frontmatter: a
-PR body that exists only in chat would not match a path glob. Start a new
+MR description that exists only in chat would not match a path glob. Start a new
 session; a session started before the install will not have the files.
 
 ### Updated always-on rules do not appear

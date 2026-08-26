@@ -76,7 +76,7 @@ Use only the structure the artifact needs. Do not force every section.
   Comments: non-obvious rationale, not narration of code.
 - Plan: objective, current state, ordered work, dependencies, completion criteria.
 - Spec / ADR: decision, context, alternatives when relevant, consequences.
-- PR / commit: problem, approach, impact, validation, risks or follow-ups.
+- MR / commit: problem, approach, impact, validation, risks or follow-ups.
 - Changelog: change, user impact, compatibility or migration.
 - Issue / status: current condition, impact, evidence, next decision.
 

@@ -1,9 +1,9 @@
-# PR text leads with the user-visible change
+# MR text leads with the user-visible change
 
-A PR title names what the user sees fixed or changed, never the mechanism. The
-body opens with the problem in the reader's terms, then the after-state, then
-cause and fix. Same order for the commit subject. A feature PR still leads
-with the user-visible effect.
+An MR title names what the user sees fixed or changed, never the mechanism.
+The description opens with the problem in the reader's terms, then the
+after-state, then cause and fix. Same order for the commit subject. A feature
+MR still leads with the user-visible effect.
 
 | Do not write (mechanism) | Write (user-visible effect) |
 | --- | --- |
@@ -13,7 +13,7 @@ with the user-visible effect.
 If a reader who never opened the diff cannot tell what improved, the title is
 wrong.
 
-Body order:
+Description order:
 
 1. **The bug** (or **The change**): user-visible problem or effect.
 2. **After this change**: what they see now.

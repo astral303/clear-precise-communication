@@ -1,15 +1,15 @@
 # Scannable engineering docs
 
-PR bodies, issue drafts, and similar engineering docs are built so the
+MR descriptions, issue drafts, and similar engineering docs are built so the
 structure is visible without reading the prose.
 
 A reviewer should not have to dig the structure out of a paragraph.
 
 ## Scope
 
-Pull request bodies, issues, design docs, reviewer guides, plans, ADRs, and
-any engineering note that lists facts, mappings, or behavior. Commit bodies
-when they contain more than one fact.
+Merge request descriptions, issues, design docs, reviewer guides, plans, ADRs,
+and any engineering note that lists facts, mappings, or behavior. Commit
+bodies when they contain more than one fact.
 
 This is not "when I remember to make it pretty." If the content is a series of
 parallel facts, the first draft is bullets. If the content is a grid, the
@@ -71,8 +71,8 @@ These are AI-shaped filler. Remove them when they appear:
   behaviors. Those are tables or bullets.
 - "The table felt too heavy for three rows." Three rows of key × behavior is
   still a table. A sentence with two em-dashes is not a table.
-- "This is chat, not the PR." If the chat text is the PR body, it is the PR
-  body.
+- "This is chat, not the MR." If the chat text is the MR description, it is
+  the MR description.
 
 ## Final scan
 

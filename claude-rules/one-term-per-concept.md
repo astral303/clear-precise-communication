@@ -10,11 +10,11 @@ word the product already uses.
 
 ## Scope
 
-Every durable artifact for the change, together: PR title and body, commit
+Every durable artifact for the change, together: MR title and description, commit
 subject and body, issue text, changelog, user docs, `///` and `//` comments,
 test names, assertion messages, and user-facing copy.
 
-This is not a "PR body only" rule. If the title, the changelog, and a doc
+This is not an "MR description only" rule. If the title, the changelog, and a doc
 comment each use a different name, the rule was already ignored.
 
 User-facing text uses the words on screen. Identifiers and comments that
@@ -49,7 +49,7 @@ has that term. Closeness is not sameness.
   existing product word, it is a different concept. Do not use it.
 - "The title needed a shorter phrase." Shorten without renaming the concept.
 - "The comment is explaining in different words." The comment uses the same
-  term as the PR and the changelog.
+  term as the MR and the changelog.
 - "Code already uses the other word." Then the durable prose either adopts
   that word everywhere, or the code is renamed. Do not keep both in the
   artifacts the reader sees.

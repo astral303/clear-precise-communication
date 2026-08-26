@@ -2,7 +2,7 @@
 
 A ratio transfers to the reader's machine. Raw seconds and raw counts do not.
 Neither does a statistic the tool never prints. Applies to performance and
-size claims in changelogs, PRs, and user docs.
+size claims in changelogs, MRs, and user docs.
 
 Parent bullet: verb, symptom or effect, ratio, parenthetical scope. Mechanism
 is a sub-bullet.

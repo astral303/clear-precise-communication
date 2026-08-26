@@ -1,8 +1,9 @@
 # Scannable engineering docs
 
-PR bodies, issues, and similar notes are built so the structure is visible
-without reading the prose. If the content is a series of parallel facts, the
-first draft is bullets. If it is a grid, the first draft is a table.
+MR descriptions, issues, and similar notes are built so the structure is
+visible without reading the prose. If the content is a series of parallel
+facts, the first draft is bullets. If it is a grid, the first draft is a
+table.
 
 | Content | Shape |
 | --- | --- |
@@ -20,4 +21,4 @@ Delete on sight: "the way X does", "happy to…", "One-line fix", "as before"
 repeated per bullet, "this change makes it so that", "in order to" when a verb
 would do, a summary sentence above a list the list already states.
 
-If the chat text is the PR body, it is the PR body.
+If the chat text is the MR description, it is the MR description.

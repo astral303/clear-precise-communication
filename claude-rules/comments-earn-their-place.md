@@ -8,7 +8,7 @@ review finding of the form "the next reader could break X without noticing."
 
 `///` doc comments, `//` comments, `#` comments, module-level docs, review
 suggestions that propose adding a comment, and self-review line comments
-destined for GitHub.
+destined for GitLab.
 
 This file is the comments half of clean-code "necessary comments only" plus
 the reviewer-facing rule that a comment must not advocate. It applies while
@@ -56,7 +56,7 @@ implementation is unquestionably correct.
 | Verdicts (`this is safe`, `mechanical`, `can't regress`) | Describe; see `reviewer-facing-describe-dont-advocate.md` |
 | Narration of the diff you just wrote | The reader has the code, not your session |
 
-Keep internal checklist notes visibly separate from text destined for GitHub.
+Keep internal checklist notes visibly separate from text destined for GitLab.
 
 ## Closed loopholes
 

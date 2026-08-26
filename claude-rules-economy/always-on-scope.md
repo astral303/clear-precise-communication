@@ -11,7 +11,7 @@ not a substitute.
 
 Every durable artifact, including text drafted in chat:
 
-- pull request titles and bodies
+- merge request titles and descriptions
 - commit subjects and bodies
 - issues and review comments
 - changelogs and release notes
@@ -49,9 +49,9 @@ force whether or not anyone invoked a skill.
 - `documentation-tone.md` — describe; do not sell or inflate
 - `noun-phrase-labels-not-questions.md` — noun-phrase labels, no What/Where/Why openers
 - `write-from-the-reader.md` — reader's next action, not the diff
-- `pr-text-leads-with-the-bug.md` — user-visible effect first
-- `pr-text-scannable-structure.md` — tables for grids, one-fact bullets
-- `pr-bodies-are-permanent-records.md` — facts about the change; no machine state
+- `mr-text-leads-with-the-bug.md` — user-visible effect first
+- `mr-text-scannable-structure.md` — tables for grids, one-fact bullets
+- `mr-bodies-are-permanent-records.md` — facts about the change; no machine state
 - `changelog-entry-style.md` — change class, verb + symptom
 - `changelog-impact-claims.md` — ratios; no correctness theater
 - `literal-verbs-not-idioms.md` — name the operation

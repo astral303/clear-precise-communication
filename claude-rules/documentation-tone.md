@@ -5,7 +5,7 @@ editorialize.
 
 ## Scope
 
-Every durable artifact: PR text, commit text, issues, changelogs, user docs,
+Every durable artifact: MR text, commit text, issues, changelogs, user docs,
 ADRs, plans, design docs, reviewer guides, `///` and `//` comments, test names,
 assertion messages, and user-facing copy. Comments and drafts are in scope.
 

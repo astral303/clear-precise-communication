@@ -1,8 +1,9 @@
 # Final scan before sending
 
 "I didn't notice while writing the sentence" is a process failure. The scan
-is the process. Run it on the artifact you are about to send — PR body,
-comment, changelog entry, README sentence, doc comment — not on a later
+is the process. Run it on the artifact you are about to send — MR
+description, comment, changelog entry, README sentence, doc comment — not on a
+later
 revision.
 
 This is not optional and not a skill invocation.
@@ -48,7 +49,7 @@ Search the artifact (and the diff, for comments and test names) for:
 | `always`, `never`, `only`, `everything else`, `no matter what`, `mechanical`, `low risk`, `can't regress`, `safe` in reviewer-facing text | Condition, depth, or deletion |
 | `now` / `no longer` missing from old-vs-new contrasts | Add the marker |
 | raw seconds, unreproducible counts, "it works as expected" | Ratio, percentage, or cut |
-| branch names, `worth doing`, `plans/`, `PR A`, timings in a PR body | Cut |
+| branch names, `worth doing`, `plans/`, `MR A`, timings in an MR description | Cut |
 
 ## 4. One term per concept
 

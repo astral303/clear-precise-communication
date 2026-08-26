@@ -93,7 +93,7 @@ Use only the structure the artifact needs:
 - Documentation or runbook: purpose, prerequisites, steps, verification, troubleshooting. In code comments, explain non-obvious rationale or constraints rather than narrating code.
 - Plan: objective, current state, ordered work, dependencies, milestones, completion criteria.
 - Specification or decision record: requirement or decision, context, alternatives when relevant, consequences.
-- Pull request or commit text: problem or motivation, approach, impact, validation, risks or follow-ups.
+- Merge request or commit text: problem or motivation, approach, impact, validation, risks or follow-ups.
 - Changelog or release note: change, user impact, compatibility or migration information.
 - Issue, status, or incident report: current condition, impact, evidence or cause, mitigation, next decision or follow-up.
 

@@ -35,7 +35,7 @@ Search the artifact (and the diff, for comments and test names):
 | `always`, `never`, `only`, `everything else`, `no matter what`, `mechanical`, `low risk`, `can't regress`, `safe` in reviewer-facing text | Condition, depth, or delete |
 | `now` / `no longer` missing from old-vs-new contrasts | Add the marker |
 | raw seconds, unreproducible counts, "it works as expected" | Ratio, percentage, or cut |
-| branch names, `worth doing`, `plans/`, `PR A`, timings in a PR body | Cut |
+| branch names, `worth doing`, `plans/`, `MR A`, timings in an MR description | Cut |
 
 A grep cannot catch a count the product does not print, or a completeness
 claim (`at any window width`, `every row`) that is not on this list. Read for

@@ -3,7 +3,8 @@
 A sentence like `Wrapped text — a reply, a result, a shell command — now
 reflows…` is a rhetorical appositive: it announces a category, pauses,
 illustrates, then delivers the verb. The `a …, a …, a …` is a tricolon
-(pulpit rhythm). Neither belongs in a changelog bullet, a PR body, a commit
+(pulpit rhythm). Neither belongs in a changelog bullet, an MR description, a
+commit
 message, or a doc sentence.
 
 This does not ban the em-dash. It bans using the dash as stage directions:
@@ -11,7 +12,7 @@ pause, enumerate, resume.
 
 ## Scope
 
-Every durable artifact: changelog entries, PR titles and bodies, commit
+Every durable artifact: changelog entries, MR titles and descriptions, commit
 messages, issues, user docs, `///` and `//` comments, and any sentence that
 states a change.
 

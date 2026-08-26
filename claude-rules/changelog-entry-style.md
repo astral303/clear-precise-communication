@@ -8,7 +8,7 @@ Area labels and neutral end-state phrasing answer none of those.
 ## Scope
 
 `CHANGELOG` / `CHANGELOG.md` / release notes / `Unreleased` sections. Parent
-bullets in a PR that will be copied into a changelog follow the same shape.
+bullets in an MR that will be copied into a changelog follow the same shape.
 
 Project conventions take precedence when the repo already has a changelog
 format. If grouping is unspecified, use the defaults below.

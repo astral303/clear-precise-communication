@@ -1,6 +1,6 @@
 # Reviewer-facing writing: describe, do not advocate
 
-When a third party evaluates work — PR descriptions, reviewer guides,
+When a third party evaluates work — MR descriptions, reviewer guides,
 self-review comments, design docs, review replies — describe the code. Do not
 argue for it. A design doc that sells the implementation is in violation.
 

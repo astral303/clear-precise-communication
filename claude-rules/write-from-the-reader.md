@@ -14,7 +14,7 @@ Every durable artifact, and **code comments and doc comments exactly as much as
 READMEs**. Reading this as "user-facing docs only" is the mistake that let it
 be ignored three times.
 
-Applies to: READMEs, user docs, changelogs, PR bodies, `///` comments, `//`
+Applies to: READMEs, user docs, changelogs, MR descriptions, `///` comments, `//`
 comments, module docs, error-string comments, and any prose that explains
 behavior.
 
