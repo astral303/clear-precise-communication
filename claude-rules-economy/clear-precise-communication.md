@@ -70,23 +70,7 @@ No "This document will." No recap of the recap. No "happy to help."
 
 ## Adapt to the artifact
 
-Use only the structure the artifact needs. Do not force every section.
-
-- Docs / runbook: purpose, prerequisites, steps, verification, troubleshooting.
-  Comments: non-obvious rationale, not narration of code.
-- Plan: objective, current state, ordered work, dependencies, completion criteria.
-- Spec / ADR: decision, context, alternatives when relevant, consequences.
-- PR / commit: problem, approach, impact, validation, risks or follow-ups.
-- Changelog: change, user impact, compatibility or migration.
-- Issue / status: current condition, impact, evidence, next decision.
-
-## When to break the defaults
-
-Preserve safety, accessibility, required templates, and necessary technical
-detail even when they add length. Ask for an unknown material fact or label
-the uncertainty; do not guess to seem complete.
-
-## Final check
-
-Delete any meta-opening, duplicated recap, tangent, empty hedge, or generic
-closer. Then scan only the title, headings, and opening sentences.
+Use only the structure the artifact needs. PR and changelog shape: see
+`pull-requests.md` and `changelog.md`. Comments: non-obvious rationale, not
+narration of code. Preserve safety, templates, and necessary detail. Label
+unknowns; do not guess to seem complete. Then run `final-scan.md`.
