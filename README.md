@@ -91,6 +91,11 @@ Memory files.
 If you already have a short `~/.claude/rules/documentation-tone.md`, remove it.
 `claude-rules/documentation-tone.md` replaces it.
 
+[`claude-rules/`](./claude-rules/) is about 20k Opus 5 tokens.
+[`claude-rules-economy/`](./claude-rules-economy/) is the same constraints
+with less repetition (about 8k). Junction that directory instead when the
+context budget is tight. The full set is harder for Claude to ignore.
+
 ## What changes
 
 The rules put the primary value first, expose state and next actions when they
@@ -136,8 +141,9 @@ Read the complete one-file rule in [`rules/clear-precise-communication.md`](./ru
 - Describe work to a reviewer; do not advocate for it
 - Comments only for what code cannot say; structure or a test first
 
-Each Claude file restates that comments, drafts, and test names are in scope.
-`final-scan.md` is the post-write search.
+The full set restates that comments, drafts, and test names are in scope in
+each file. `final-scan.md` is the post-write search. The economy set says
+that once, in `always-on-scope.md`.
 
 ## Customize
 
