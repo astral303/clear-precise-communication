@@ -1,6 +1,7 @@
 # Clear, Precise Communication
 
-Standing writing rules for coding agents. Not a skill.
+Standing writing rules for coding agents. Commit messages are a separate
+skill.
 
 They shape ordinary replies and durable writing—documentation, plans, ADRs,
 changelogs, release and commit text, pull requests, issues, runbooks, reports,
@@ -14,7 +15,7 @@ attention, or little time.
 
 ## Two install paths
 
-A skill is the wrong delivery mechanism for both agents this repo targets.
+A skill is the wrong delivery mechanism for the always-on writing rules.
 
 - **Codex** obeys skill frontmatter. A description that says to use the skill
   for every conversation loads the full text on every turn. Standing text
@@ -61,7 +62,7 @@ At the beginning of each session, read `~/.codex/clear-precise-communication.md`
 Do not reread it during the same session, unless immediately after a compaction.
 ```
 
-Do not install this repo as a Codex plugin or skill.
+Do not install the always-on writing rules as a Codex plugin or skill.
 
 ### Claude Code
 
@@ -95,6 +96,26 @@ If you already have a short `~/.claude/rules/documentation-tone.md`, remove it.
 [`claude-rules-economy/`](./claude-rules-economy/) is the same constraints
 with less repetition (10.2k). Junction that directory instead when the
 context budget is tight. The full set is harder for Claude to ignore.
+
+### Commit messages
+
+PR titles still lead with the user-visible bug. Commit subjects follow
+[`skills/write-commit-messages/SKILL.md`](./skills/write-commit-messages/SKILL.md):
+the changed behavior or invariant first, then the defect, constraint, or
+tradeoff that required it.
+
+That file is a skill on purpose. It loads when the agent is writing a commit,
+not on every turn.
+
+Install:
+
+- Copy or symlink `skills/write-commit-messages/` into `~/.codex/skills/`
+- Copy or symlink the same directory into `~/.claude/skills/`
+
+Use:
+
+- Codex: `$write-commit-messages` (also implicit on commit work)
+- Claude: `/write-commit-messages`
 
 ## What changes
 
@@ -133,7 +154,9 @@ Read the complete one-file rule in [`rules/clear-precise-communication.md`](./ru
 - Noun-phrase labels, not question headings or `What`/`Where`/`Why` comment openers
 - Write from the reader's next action, not as a narration of the diff
 - Scannable PR structure: tables for grids, one-fact bullets
-- Title and opening name the user-visible effect
+- Title and opening name the user-visible effect. Commit messages use
+  [`write-commit-messages`](./skills/write-commit-messages/SKILL.md) instead
+  (behavior first, then why it was necessary)
 - Literal verbs, not idioms (`deleted`, not `go with it`; `reports`, not `says`)
 - One term per concept; no synonyms for variety
 - No rhetorical appositives (`X — a …, a …, a … —`); the things are the subject
