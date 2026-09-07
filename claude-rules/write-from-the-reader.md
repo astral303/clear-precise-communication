@@ -28,6 +28,10 @@ For each sentence, answer:
 
 Keep the sentence only if (2) is a real failure and (3) is no.
 
+If they cannot act on the detail without this computer (a session UUID, a
+local path, a screenshot timing), the sentence fails the test for anything
+that leaves the machine. See `machine-local-details-stay-local.md`.
+
 A sentence can be true and still fail this test. Truth is not the bar.
 Usefulness is.
 

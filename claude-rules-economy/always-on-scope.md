@@ -43,6 +43,7 @@ force whether or not anyone invoked a skill.
 | "I grepped the banned words." | That is step 3 of `final-scan.md` only. Run every step. |
 | "It shipped in the same batch as code." | Scan it anyway. |
 | "Every word is accurate, so the sentence is fine." | Accuracy is not economy. See `shortest-phrase-that-keeps-the-fact.md`. |
+| "Full IDs in chat, so maybe the PR too." | Chat is this computer. A PR is not. See `machine-local-details-stay-local.md`. |
 
 ## Sibling files
 
@@ -52,7 +53,7 @@ force whether or not anyone invoked a skill.
 - `write-from-the-reader.md` — reader's next action, not the diff
 - `pr-text-leads-with-the-bug.md` — user-visible effect first
 - `pr-text-scannable-structure.md` — tables for grids, one-fact bullets
-- `pr-bodies-are-permanent-records.md` — facts about the change; no machine state
+- `machine-local-details-stay-local.md` — if they cannot act on it without this computer, it stays local
 - `changelog-entry-style.md` — change class, verb + symptom
 - `changelog-impact-claims.md` — ratios; no correctness theater
 - `literal-verbs-not-idioms.md` — name the operation

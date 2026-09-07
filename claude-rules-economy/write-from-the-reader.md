@@ -15,7 +15,8 @@ Do not document what the UI already shows.
 3. Does the software already say this at the moment it matters?
 
 Keep the sentence only if (2) is a real failure and (3) is no. Truth is not
-usefulness.
+usefulness. A session UUID or local path fails the test for anything that
+leaves the machine; see `machine-local-details-stay-local.md`.
 
 ## Do not narrate the diff
 

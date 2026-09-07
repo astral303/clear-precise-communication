@@ -39,6 +39,7 @@ Search the artifact (and the diff, for comments and test names):
 | `still` / `unchanged` claiming existing behavior is preserved | Cut |
 | `One that`, `One the`, `one whose` | Noun first, then verb |
 | `you` / `your` in a title, commit, MR body, or comment | `the user`, unless it quotes a product string |
+| UUID-shaped IDs, absolute paths, screenshot timings in anything that leaves the machine | "In one example session, …"; see `machine-local-details-stay-local.md` |
 | branch names, `worth doing`, `plans/`, `PR A`, timings in a PR body | Cut |
 
 A grep cannot catch a count the product does not print, or a completeness

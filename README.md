@@ -92,9 +92,9 @@ Memory files.
 If you already have a short `~/.claude/rules/documentation-tone.md`, remove it.
 `claude-rules/documentation-tone.md` replaces it.
 
-[`claude-rules/`](./claude-rules/) is 24.4k Opus 5 tokens.
+[`claude-rules/`](./claude-rules/) is 25k Opus 5 tokens.
 [`claude-rules-economy/`](./claude-rules-economy/) is the same constraints
-with less repetition (10.2k). Junction that directory instead when the
+with less repetition (10.3k). Junction that directory instead when the
 context budget is tight. The full set is harder for Claude to ignore.
 
 ### Commit messages
@@ -153,6 +153,8 @@ Read the complete one-file rule in [`rules/clear-precise-communication.md`](./ru
 
 - Noun-phrase labels, not question headings or `What`/`Where`/`Why` comment openers
 - Write from the reader's next action, not as a narration of the diff
+- If the reader cannot act on a detail without this computer, it stays in chat
+  or a gitignored plan — not a PR, commit, changelog, or README
 - Scannable PR structure: tables for grids, one-fact bullets
 - Title and opening name the user-visible effect. Commit messages use
   [`write-commit-messages`](./skills/write-commit-messages/SKILL.md) instead

@@ -80,6 +80,7 @@ These have been offered and are rejected:
 | "The artifact shipped in the same batch as code edits." | Scan it anyway. A code batch is not a reason to skip the writing check. |
 | "Every word is accurate, so the sentence is fine." | Accuracy is not economy. Write the phrase shorter and keep the shorter one; see `shortest-phrase-that-keeps-the-fact.md`. |
 | "This is just a draft / plan / reviewer note." | Durable text uses the same register as shipped docs. |
+| "The chat rule is full session IDs, so maybe the PR too." | Full IDs in chat are so *you* can open them. A PR leaves the machine. See `machine-local-details-stay-local.md`. |
 
 ## Sibling rules in this directory
 
@@ -89,7 +90,7 @@ These have been offered and are rejected:
 - `write-from-the-reader.md` — write for the reader's next action, not as a narration of the diff.
 - `pr-text-leads-with-the-bug.md` — title and opening name the user-visible problem or effect.
 - `pr-text-scannable-structure.md` — tables for grids, one-fact bullets, no prose restating bullets.
-- `pr-bodies-are-permanent-records.md` — facts about the change only; no machine state, no advice.
+- `machine-local-details-stay-local.md` — if the reader cannot act on it without this computer, it stays in chat or a gitignored plan.
 - `changelog-entry-style.md` — change class, standalone parent summary, verb + symptom.
 - `changelog-impact-claims.md` — ratios a reader can reuse; no correctness theater.
 - `literal-verbs-not-idioms.md` — name the operation; do not analogize it.
