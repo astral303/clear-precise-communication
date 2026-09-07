@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commit Message Writing"
+  short_description: "Write natural, scannable engineering commits"
+  default_prompt: "Use $write-commit-messages to write or revise this Git commit message."
