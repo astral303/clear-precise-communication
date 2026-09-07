@@ -78,6 +78,7 @@ These have been offered and are rejected:
 | "Loaded rules do not apply themselves while I draft." | They bind the first draft. A later scan is not a substitute. |
 | "I grepped the banned words / ran a keyword pass." | That is step 3 of `final-scan.md` only. The other steps are reads. Run every step. |
 | "The artifact shipped in the same batch as code edits." | Scan it anyway. A code batch is not a reason to skip the writing check. |
+| "Every word is accurate, so the sentence is fine." | Accuracy is not economy. Write the phrase shorter and keep the shorter one; see `shortest-phrase-that-keeps-the-fact.md`. |
 | "This is just a draft / plan / reviewer note." | Durable text uses the same register as shipped docs. |
 
 ## Sibling rules in this directory
@@ -96,6 +97,8 @@ These have been offered and are rejected:
 - `no-rhetorical-appositives.md` — no theme-then-examples dash lists; the things are the subject.
 - `reviewer-facing-describe-dont-advocate.md` — Decision → Reason → Boundary; no verdicts.
 - `comments-earn-their-place.md` — structure or a test first; comments only for what code cannot say.
+- `shortest-phrase-that-keeps-the-fact.md` — rewrite each phrase shorter and keep it unless a fact was lost; cut clauses that prove the check instead of stating the result.
+- `second-person-only-in-product-text.md` — `you` in changelogs and UI copy, `the user` in titles, commits, MR bodies and comments.
 - `final-scan.md` — every step of the post-write scan, not only the keyword pass.
 
 ## Order of work
