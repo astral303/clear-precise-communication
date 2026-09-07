@@ -45,10 +45,28 @@ Fixes lead with the verb and the symptom, not with the end state.
 | `I` copies the session ID to the clipboard | Fix `I` copying the actual session ID |
 | Codex runs show one row per call | Fix Codex runs showing one `Called 1 tool` row per call |
 
-## One bullet per behavior
+A small, one-condition fix is one or two lines stating what the user now
+sees. Length signals importance. Do not spell the symptom out across three
+lines when the after-state is the fact:
 
-Do not compress two keys or two behaviors into one clause. One bullet per key,
-with its full behavior, including fallbacks.
+| Do not write | Write |
+| --- | --- |
+| Fix a tool result, call body or task report one line over its truncation limit hiding that line behind `(1 more lines...)` | Output with one line truncated now shows that line instead of `(1 more lines...)` |
+
+## Silently absent behavior is a Fix
+
+If the user would reasonably have expected the thing already ("why isn't X
+there?"), the entry is a Fix: `Fix <thing> missing from <surfaces>.` then
+what now shows. It is not an Enhancement, and the symptom is not a trailing
+"Until now they were not read."
+
+Decide fix-or-enhancement from the user's expectation, not from the plan's
+heading. The PR title and "The bug" section use the same first sentence.
+
+## One bullet per distinct behavior
+
+When keys or surfaces share one behavior, one parent line names them all.
+When a key's behavior differs, including fallbacks, it gets its own bullet.
 
 Cut mechanism trivia the user cannot act on (gutter markers, internal metadata
 field names) unless the user must know it to use the change. User-visible
@@ -68,10 +86,13 @@ US spelling unless the project uses otherwise (`colored`). Capitalize
 
 - "I grouped by the module I edited." The reader groups by Enhancements /
   Fixes / Internal, not by your files.
-- "The end state is more positive." The reader needs the symptom that was
-  wrong. Verb + symptom.
-- "Two keys do the same kind of thing, so one bullet." Each key gets its own
-  bullet if its behavior differs, including fallbacks.
+- "The end state is more positive." A real bug still leads with the symptom.
+  A one-condition fix may be the after-state, in one or two lines, because
+  length signals importance.
+- "Two keys do the same kind of thing, so four sub-bullets." If the behavior
+  is the same, one line. Own bullets only when the behavior differs.
+- "The plan filed it under Enhancements." The user's expectation decides
+  the class, not the plan heading.
 
 ## Final scan
 

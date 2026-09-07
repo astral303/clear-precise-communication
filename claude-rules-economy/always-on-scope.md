@@ -42,6 +42,7 @@ force whether or not anyone invoked a skill.
 | "Loaded rules do not apply while I draft." | They bind the first draft. |
 | "I grepped the banned words." | That is step 3 of `final-scan.md` only. Run every step. |
 | "It shipped in the same batch as code." | Scan it anyway. |
+| "Every word is accurate, so the sentence is fine." | Accuracy is not economy. See `shortest-phrase-that-keeps-the-fact.md`. |
 
 ## Sibling files
 
@@ -59,6 +60,11 @@ force whether or not anyone invoked a skill.
 - `no-rhetorical-appositives.md` — no theme-then-examples dash lists
 - `reviewer-facing-describe-dont-advocate.md` — Decision → Reason → Boundary
 - `comments-earn-their-place.md` — structure or a test first
+- `shortest-phrase-that-keeps-the-fact.md` — shorter form unless a fact was lost
+- `second-person-only-in-product-text.md` — `you` in product text, `the user` in records
+- `subject-first-sentences.md` — noun then verb; no `One that` / `one whose`
+- `name-the-type-not-a-nickname.md` — identifier plus one clause of meaning
+- `relay-findings-in-reader-terms.md` — relay opens with what the user sees
 - `final-scan.md` — every step, not only the keyword pass
 
 ## Order of work

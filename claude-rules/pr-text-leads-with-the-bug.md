@@ -4,13 +4,18 @@ A PR title names what the user sees fixed or changed, never the mechanism. The
 body opens with the problem in the reader's terms, then the after-state, then
 cause and fix.
 
-The same order applies to the commit subject.
+Commit subjects do **not** follow this order. They follow the
+`write-commit-messages` skill: the subject and opening sentence name the
+changed behavior or invariant, then the defect, constraint, or tradeoff that
+required it. A PR title can name the bug while the commit names the
+behavior that moved (`Read sub-agent transcripts through their parent
+session`), not `Refactor the provider lookup`.
 
 ## Scope
 
-Pull request titles and bodies, commit subjects and bodies, issue titles that
-report a defect, and changelog parent bullets for fixes. Comments that explain
-a bugfix follow the same order: symptom first, mechanism second.
+Pull request titles and bodies, issue titles that report a defect, and
+changelog parent bullets for fixes. Comments that explain a bugfix follow the
+same order: symptom first, mechanism second.
 
 This is not a "bug tickets only" rule. A feature PR still leads with the
 user-visible effect, not the refactor that enabled it.
@@ -26,13 +31,20 @@ user-visible effect, not the refactor that enabled it.
 If a reader who never opened the diff cannot tell what improved, the title is
 wrong.
 
+Name every key the change touches, not only the one that headlines. Use the
+changelog's noun for the thing (`truncated messages`, not `bodies`). A key
+that did nothing before is `Add support for …`; a key whose behavior changed
+is `ensure …`. Two changes in one PR are joined with a semicolon, each with
+its own verb.
+
 ## Body order
 
 1. **The bug** (or **The change**, for a feature): the user-visible problem or
    effect, in the reader's terms.
 2. **After this change**: what they see now.
 3. Cause, then fix, under their own noun-phrase headings.
-4. Validation: named test groups, not a tour of every case.
+4. Validation: two to four lines naming coverage groups. No test names, no
+   per-case lines. See `pr-text-scannable-structure.md`.
 
 Do not open with a symbol name, a file, or a function. If the status bar, a
 key, or a mode flag is required to understand the bug, explain it on first
@@ -56,9 +68,11 @@ fix.
   3. It is not the title and not the first sentence.
 - "The audience is other engineers, so symbols are fine." Engineers still need
   the symptom first. Symbols come after, defined on first use.
-- "This is a refactor with no user-visible change." Then the title names the
-  invariant that moved or the failure the refactor makes impossible — still an
-  effect, not a file list.
+- "This is a refactor with no user-visible change." The PR title still names
+  the user-visible effect or the failure the change makes impossible. The
+  commit subject names the behavior or invariant that moved, not a file list.
+- "The commit should match the PR title." Same facts, different lede. PR: the
+  bug. Commit: the changed behavior, then why it was necessary.
 
 ## Final scan
 

@@ -30,7 +30,8 @@ you added.
 Prefer the words on screen over identifiers. Cut engineer-only vocabulary from
 user text unless the user must type it: `bounded`, `resolved`, `in force`,
 `the lookup`, `canonical`. Once you pick a term, reuse it verbatim; see
-`one-term-per-concept.md`.
+`one-term-per-concept.md`. In plans and notes, first mention of a type is the
+identifier plus one clause; see `name-the-type-not-a-nickname.md`.
 
 Generic features get generic descriptions: condition, indicator, action — not
 today's only instance. Completeness that restates the UI is padding;

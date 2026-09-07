@@ -30,7 +30,9 @@ The number (the ratio) comes first; the qualifier is in parentheses.
 
 Do not publish a raw count the product does not surface. A **percentage** they
 can compare against their own corpus is fine; "991 of 1,282 were such threads"
-is not, if nothing in the tool prints that count.
+is not, if nothing in the tool prints that count. A layout constant the UI
+does not print (`seven columns`, `TIMESTAMP_WIDTH`) is the same defect. The
+user toggles a key; they do not count cells.
 
 State who gains little in the same place you state who gains most:
 
@@ -48,6 +50,8 @@ would be broken; that is not changelog material.
 | "The record lasts as long as the transcript's size and modification time do, so a session that gains content is read again" | Restating that the cache is not stale forever. Expected behavior. |
 | "A transcript that could not be read is retried on the next load" | Only notable if it is new. Failed reads that already retried stay out. |
 | "one skipped for exceeding a provider's size limit" | If no provider exposes that limit, the path is unreachable. Do not document it. |
+| "at any window width" | Completeness theater with a ruler. Wrapping at the available width is the feature working. |
+| "A click still toggles the one body clicked." | A changelog is not a still-works-this-way log. Unchanged behavior is not an entry. |
 
 For each remaining line ask: is it new, can a user reach it, and can they act
 on it? Cut it otherwise.
@@ -61,6 +65,10 @@ mechanism you can verify.
   plus parenthetical scope is what transfers.
 - "I should mention the cache still invalidates, so people aren't scared."
   That is reassurance, not information. Cut. See `documentation-tone.md`.
+- "Each key needs its own sub-bullet." Not when they share one behavior. One
+  parent line names the keys. A rare case is not worth a line.
+- "The seven makes it concrete." It is a count the product does not print.
+  Same as raw seconds.
 - "The unreachable branch is documented so future us doesn't reintroduce it."
   That belongs in a test or a comment on the `None` return, not in the
   changelog.
@@ -68,5 +76,5 @@ mechanism you can verify.
 ## Final scan
 
 Parent bullet: verb, effect, ratio, scope in parentheses. No raw seconds. No
-counts the tool cannot print. No sentence whose claim is "it works". No path
+counts the tool cannot print. No sentence whose claim is "it works" or "still". No path
 the user cannot reach. Who gains little sits next to who gains most.

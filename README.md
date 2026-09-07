@@ -91,9 +91,9 @@ Memory files.
 If you already have a short `~/.claude/rules/documentation-tone.md`, remove it.
 `claude-rules/documentation-tone.md` replaces it.
 
-[`claude-rules/`](./claude-rules/) is 19.9k Opus 5 tokens.
+[`claude-rules/`](./claude-rules/) is 24.4k Opus 5 tokens.
 [`claude-rules-economy/`](./claude-rules-economy/) is the same constraints
-with less repetition (8.9k). Junction that directory instead when the
+with less repetition (10.2k). Junction that directory instead when the
 context budget is tight. The full set is harder for Claude to ignore.
 
 ## What changes
@@ -138,8 +138,14 @@ Read the complete one-file rule in [`rules/clear-precise-communication.md`](./ru
 - One term per concept; no synonyms for variety
 - No rhetorical appositives (`X — a …, a …, a … —`); the things are the subject
 - Changelog: change class, verb + symptom, ratios a reader can reuse
+- Silently absent expected behavior is a Fix, not an Enhancement
+- Second person (`you`) only in product text; records use `the user`
+- Shortest phrase that keeps the fact
 - Describe work to a reviewer; do not advocate for it
 - Comments only for what code cannot say; structure or a test first
+- Subject first, then the verb (`Unrecognized formats are skipped`, not `One the format does not recognize…`)
+- Name the type, not a nickname
+- Relay a finding as what the user sees, then the fix
 
 The full set restates that comments, drafts, and test names are in scope in
 each file. `final-scan.md` is the post-write search. The economy set says

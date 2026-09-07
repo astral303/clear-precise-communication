@@ -21,4 +21,5 @@ it new, can a user reach it, can they act on it? Cut it otherwise. Do not
 name a cause you cannot verify from the repo.
 
 "Seven columns" and "at any window width" are this rule: a layout constant or
-a completeness claim the UI does not print.
+a completeness claim the UI does not print. "A click still toggles…" is the
+same defect: a changelog is not a still-works-this-way log.

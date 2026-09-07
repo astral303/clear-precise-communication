@@ -13,8 +13,9 @@ first draft is bullets. If it is a grid, the first draft is a table.
 
 A bullet is one fact. Not a fact plus "so that…". Not two behaviors joined
 with "and". Do not follow a bullet with a paragraph that restates it. Tests
-sections name groups covered, not every case. Three rows of key × behavior is
-still a table.
+and Validation sections name groups covered in two to four lines, not test
+names or every case. Three rows of key × behavior is still a table. When keys
+share a behavior, one line; own bullets only when a key differs.
 
 Delete on sight: "the way X does", "happy to…", "One-line fix", "as before"
 repeated per bullet, "this change makes it so that", "in order to" when a verb

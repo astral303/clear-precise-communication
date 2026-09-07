@@ -16,6 +16,8 @@ Title, headings, and the first sentence of each section.
 - Headings are noun phrases: `Changes`, `Rationale for X`, `Validation`.
 - Not questions. Not `What` / `Where` / `Why` / `Whether` / `How` / `Which`
   openers.
+- Sentences start with the noun, then the verb. Not `One that…` / `One the…`
+  / `one whose…`. See `subject-first-sentences.md`.
 
 If the skeleton is a function name, a file list, or a recap, rewrite before
 reading the rest.
@@ -48,6 +50,9 @@ Search the artifact (and the diff, for comments and test names) for:
 | `always`, `never`, `only`, `everything else`, `no matter what`, `mechanical`, `low risk`, `can't regress`, `safe` in reviewer-facing text | Condition, depth, or deletion |
 | `now` / `no longer` missing from old-vs-new contrasts | Add the marker |
 | raw seconds, unreproducible counts, "it works as expected" | Ratio, percentage, or cut |
+| `still` / `unchanged` claiming existing behavior is preserved | Cut. A changelog is not a still-works log. |
+| `One that`, `One the`, `one whose` | Noun first, then verb |
+| `you` / `your` in a title, commit, MR body, or comment | `the user`, unless it quotes a product string |
 | branch names, `worth doing`, `plans/`, `PR A`, timings in a PR body | Cut |
 
 ## 4. One term per concept

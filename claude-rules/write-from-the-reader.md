@@ -48,7 +48,9 @@ when the rule is generic.
 ## Prefer the words on screen
 
 Use the label the user sees, not the identifier in the code. Once you pick a
-term, reuse it verbatim; see `one-term-per-concept.md`.
+term, reuse it verbatim; see `one-term-per-concept.md`. In engineering notes
+and plans, the first mention of a type is the identifier plus one clause of
+meaning; see `name-the-type-not-a-nickname.md`.
 
 Cut engineer-only vocabulary from user text unless the user must type it:
 `bounded`, `resolved`, `in force`, `the lookup`, `canonical`, `materialize`,
