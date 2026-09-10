@@ -6,7 +6,10 @@ This repo is standing writing rules, not a plugin and not a skill.
   [`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md).
 - **Claude Code:** [`claude-rules/`](./claude-rules/) in `~/.claude/rules/`
   (25k Opus 5 tokens), or [`claude-rules-economy/`](./claude-rules-economy/)
-  (10.3k) when the context budget is tight.
+  (10.3k) when the context budget is tight. For merge-request wording, use
+  [`gitlab/claude-rules/`](./gitlab/claude-rules/) or
+  [`gitlab/claude-rules-economy/`](./gitlab/claude-rules-economy/) instead.
+  Rebuild those copies with `uv run python tools/generate_gitlab_rules.py`.
 
 Do not add this repo as a Codex or Claude plugin. Skill frontmatter that says
 to use the guidance on every conversation makes Codex reload the full text on

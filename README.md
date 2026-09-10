@@ -97,6 +97,10 @@ If you already have a short `~/.claude/rules/documentation-tone.md`, remove it.
 with less repetition (10.3k). Junction that directory instead when the
 context budget is tight. The full set is harder for Claude to ignore.
 
+GitLab-oriented copies live under [`gitlab/`](./gitlab/). They are generated
+from the trees above; do not edit them. Rebuild with
+`uv run python tools/generate_gitlab_rules.py`.
+
 ### Commit messages
 
 PR titles still lead with the user-visible bug. Commit subjects follow
