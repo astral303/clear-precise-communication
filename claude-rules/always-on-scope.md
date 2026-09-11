@@ -100,7 +100,7 @@ These have been offered and are rejected:
 - `comments-earn-their-place.md` — structure or a test first; comments only for what code cannot say.
 - `shortest-phrase-that-keeps-the-fact.md` — rewrite each phrase shorter and keep it unless a fact was lost; cut clauses that prove the check instead of stating the result.
 - `second-person-only-in-product-text.md` — `you` in changelogs and UI copy, `the user` in titles, commits, MR bodies and comments.
-- `subject-first-sentences.md` — noun then verb; no `One that` / `one whose` openers.
+- `subject-first-sentences.md` — noun then verb; do not park the fact in a relative (`One that`, `one whose`, `, for which `).
 - `name-the-type-not-a-nickname.md` — first mention is the identifier plus one clause of meaning.
 - `relay-findings-in-reader-terms.md` — a relayed finding opens with what the user sees, not a function name.
 - `final-scan.md` — every step of the post-write scan, not only the keyword pass.

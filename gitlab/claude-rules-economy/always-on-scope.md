@@ -63,7 +63,7 @@ force whether or not anyone invoked a skill.
 - `comments-earn-their-place.md` — structure or a test first
 - `shortest-phrase-that-keeps-the-fact.md` — shorter form unless a fact was lost
 - `second-person-only-in-product-text.md` — `you` in product text, `the user` in records
-- `subject-first-sentences.md` — noun then verb; no `One that` / `one whose`
+- `subject-first-sentences.md` — noun then verb; no parked relative (`One that`, `one whose`, `, for which `)
 - `name-the-type-not-a-nickname.md` — identifier plus one clause of meaning
 - `relay-findings-in-reader-terms.md` — relay opens with what the user sees
 - `final-scan.md` — every step, not only the keyword pass

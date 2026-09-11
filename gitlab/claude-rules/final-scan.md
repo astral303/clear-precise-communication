@@ -17,7 +17,7 @@ Title, headings, and the first sentence of each section.
 - Not questions. Not `What` / `Where` / `Why` / `Whether` / `How` / `Which`
   openers.
 - Sentences start with the noun, then the verb. Not `One that…` / `One the…`
-  / `one whose…`. See `subject-first-sentences.md`.
+  / `one whose…` / `, for which `. See `subject-first-sentences.md`.
 
 If the skeleton is a function name, a file list, or a recap, rewrite before
 reading the rest.
@@ -51,7 +51,7 @@ Search the artifact (and the diff, for comments and test names) for:
 | `now` / `no longer` missing from old-vs-new contrasts | Add the marker |
 | raw seconds, unreproducible counts, "it works as expected" | Ratio, percentage, or cut |
 | `still` / `unchanged` claiming existing behavior is preserved | Cut. A changelog is not a still-works log. |
-| `One that`, `One the`, `one whose` | Noun first, then verb |
+| `One that`, `One the`, `one whose`, `, for which ` | Noun first, then verb |
 | `you` / `your` in a title, commit, MR description, or comment | `the user`, unless it quotes a product string |
 | UUID-shaped IDs, absolute paths, screenshot timings, local branch names in anything that leaves the machine | "In one example session, …" plus facts; see `machine-local-details-stay-local.md` |
 | branch names, `worth doing`, `plans/`, `MR A`, timings in an MR description | Cut |

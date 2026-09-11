@@ -10,7 +10,7 @@ Title, headings, and the first sentence of each section name the user-visible
 problem or effect, the after-state, and the next action when one is needed.
 Headings are noun phrases (`Changes`, `Rationale for X`), not questions or
 What/Where/Why/Whether/How/Which openers. Sentences start with the noun, then
-the verb — not `One that` / `One the` / `one whose`.
+the verb — not `One that` / `One the` / `one whose` / `, for which `.
 
 ## 2. Data shape
 
@@ -37,7 +37,7 @@ Search the artifact (and the diff, for comments and test names):
 | `now` / `no longer` missing from old-vs-new contrasts | Add the marker |
 | raw seconds, unreproducible counts, "it works as expected" | Ratio, percentage, or cut |
 | `still` / `unchanged` claiming existing behavior is preserved | Cut |
-| `One that`, `One the`, `one whose` | Noun first, then verb |
+| `One that`, `One the`, `one whose`, `, for which ` | Noun first, then verb |
 | `you` / `your` in a title, commit, MR body, or comment | `the user`, unless it quotes a product string |
 | UUID-shaped IDs, absolute paths, screenshot timings in anything that leaves the machine | "In one example session, …"; see `machine-local-details-stay-local.md` |
 | branch names, `worth doing`, `plans/`, `PR A`, timings in a PR body | Cut |
