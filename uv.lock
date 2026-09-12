@@ -116,17 +116,20 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "ctok", specifier = ">=1.1.0" },
+    { name = "ctok", specifier = ">=1.3.0" },
     { name = "tiktoken", specifier = ">=0.14.0" },
 ]
 
 [[package]]
 name = "ctok"
-version = "1.1.0"
+version = "1.3.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/b1/f6/e0e2ae69c84290e6926666a7fef6230e424a65bb1d1197361e46dfef4edf/ctok-1.1.0.tar.gz", hash = "sha256:9267b69a78018db23134581fc1ff25aab580d28ec5d33a377790530817561210", size = 3050657, upload-time = "2026-08-24T12:59:07.129Z" }
+dependencies = [
+    { name = "regex" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/55/61/f1e14874aec35db437c98af271316ffb47035e7d018ed65a6ccd0480fb57/ctok-1.3.0.tar.gz", hash = "sha256:f41812a6a67aea1422ff742c1b20f2a61f5ea733c74d755b94db88be5c9a930f", size = 3057506, upload-time = "2026-09-01T13:28:34.315Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/83/60/b0db241d0ce4e5633c26587a2df810e737fec6a0a4e47bb855cae998f7fb/ctok-1.1.0-py3-none-any.whl", hash = "sha256:e486a9584084971dd9797c365e6110e02202eaa0bd63f91490ca82459310e852", size = 463923, upload-time = "2026-08-24T12:59:05.613Z" },
+    { url = "https://files.pythonhosted.org/packages/07/be/85fdcb8b6c901f0dfaf7da4bac125820cd501f73e69f7550131bb685a143/ctok-1.3.0-py3-none-any.whl", hash = "sha256:84442682eeb2013ecb86861f9477b4ad3e19cc174099df98e9b5016450013217", size = 461115, upload-time = "2026-09-01T13:28:32.611Z" },
 ]
 
 [[package]]

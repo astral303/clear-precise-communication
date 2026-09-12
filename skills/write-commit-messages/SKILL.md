@@ -32,8 +32,8 @@ stand-alone substitute for the patch.
    behavior it protects. Do not record that existing tests still pass, that
    untouched callers still compile, or that unchanged behavior still works.
    Those claims are correctness theater. Keep pass counts, command logs, and
-   CI state out of the message; they belong in the pull request, review notes,
-   or plan if anywhere.
+   CI state out of the message; they belong in the pull/merge request, review
+   notes, or plan if anywhere.
 
 ## Write the subject
 

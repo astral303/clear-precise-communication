@@ -4,12 +4,13 @@ This repo is standing writing rules, not a plugin and not a skill.
 
 - **Codex and other agents that obey global instructions:** one file,
   [`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md).
-- **Claude Code:** [`claude-rules/`](./claude-rules/) in `~/.claude/rules/`
-  (25k Opus 5 tokens), or [`claude-rules-economy/`](./claude-rules-economy/)
-  (10.3k) when the context budget is tight. For merge-request wording, use
+- **Claude Code:** [`claude-rules/`](./claude-rules/) in `~/.claude/rules/`,
+  or [`claude-rules-economy/`](./claude-rules-economy/) when the context
+  budget is tight. For merge-request wording, use
   [`gitlab/claude-rules/`](./gitlab/claude-rules/) or
   [`gitlab/claude-rules-economy/`](./gitlab/claude-rules-economy/) instead.
   Rebuild those copies with `uv run python tools/generate_gitlab_rules.py`.
+  Token counts are in the [README tables](./README.md#claude-code).
 
 Do not add this repo as a Codex or Claude plugin. Skill frontmatter that says
 to use the guidance on every conversation makes Codex reload the full text on
@@ -122,12 +123,14 @@ If `~/.claude/rules/documentation-tone.md` already exists as a short file,
 remove it so it does not compete with `claude-rules/documentation-tone.md`.
 
 To install the shorter set instead, point the junction or symlink at
-`claude-rules-economy/` (10.3k Opus 5 tokens instead of 25k). Same
-constraints, less repetition. Use `claude-rules/` when the budget allows.
+`claude-rules-economy/`. Same constraints, less repetition. Use
+`claude-rules/` when the budget allows. Sizes are in the
+[README tables](./README.md#claude-code).
 
-Count either directory with:
+Count the install table with:
 
 ```bash
+uv run python tools/count_claude_tokens.py --table
 uv run python tools/count_claude_tokens.py claude-rules
 uv run python tools/count_claude_tokens.py claude-rules-economy
 ```

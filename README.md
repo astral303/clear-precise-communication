@@ -92,14 +92,39 @@ Memory files.
 If you already have a short `~/.claude/rules/documentation-tone.md`, remove it.
 `claude-rules/documentation-tone.md` replaces it.
 
-[`claude-rules/`](./claude-rules/) is 25k Opus 5 tokens.
+[`claude-rules/`](./claude-rules/) is the full always-on set.
 [`claude-rules-economy/`](./claude-rules-economy/) is the same constraints
-with less repetition (10.3k). Junction that directory instead when the
-context budget is tight. The full set is harder for Claude to ignore.
+with less repetition. Junction that directory instead when the context budget
+is tight. The full set is harder for Claude to ignore.
 
 GitLab-oriented copies live under [`gitlab/`](./gitlab/). They are generated
 from the trees above; do not edit them. Rebuild with
 `uv run python tools/generate_gitlab_rules.py`.
+
+| Artifact | GitHub | GitLab |
+| --- | ---: | ---: |
+| `claude-rules/` | 25.6k | 25.6k |
+| `claude-rules-economy/` | 10.5k | 10.5k |
+
+GitHub is pull-request wording; GitLab is merge-request wording. Counts are
+ctok 5.0 (Claude 5).
+
+Codex and other agents that obey global instructions use
+[`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md),
+not the Claude trees. That file and the commit-message skill are not
+GitHub- or GitLab-specific.
+[`claude-rules/clear-precise-communication.md`](./claude-rules/clear-precise-communication.md)
+is the one-file body plus a Claude always-on preamble; it is counted in the
+table above. Edit the Codex file and copy the body (see Customize). The
+economy ten-rule file is a shortened rewrite, not a copy.
+
+| Artifact | Claude 5 | Codex |
+| --- | ---: | ---: |
+| `rules/clear-precise-communication.md` | 2.2k | 1.4k |
+| `write-commit-messages` | 2.3k | 1.5k |
+
+Codex counts are tiktoken o200k_base. Do not use them as a Claude estimate.
+Rebuild both tables with `uv run python tools/count_claude_tokens.py --table`.
 
 ### Commit messages
 
