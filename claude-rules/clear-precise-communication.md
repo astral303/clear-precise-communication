@@ -17,7 +17,9 @@ Five facts drive the rules:
 4. Time estimates can feel uniform. “A bit of work” and “a few hours” may register alike. Vague time estimates fail.
 5. Visible progress matters. Buried wins, decisions, and completed work do not register.
 
-Busy readers also scan before reading deeply. Make headings, opening sentences, and formatting carry useful signal.
+Busy readers also scan before reading deeply. A sequence or set of facts
+packed into a paragraph is skipped, not read slowly. Make headings, opening
+sentences, and formatting carry useful signal.
 
 ## Rules
 
@@ -32,6 +34,7 @@ Keep a qualification with the lede only when it materially changes the main poin
 - Use descriptive headings that summarize their sections.
 - Put each paragraph's main point in its first sentence and keep the paragraph focused.
 - Use bullets when presenting a series of points, so the eye can jump point to point easily.
+- Do not pack a sequence of steps or parallel facts into a paragraph. Use a list.
 - Use bullets for parallel facts and numbered lists for ordered work.
 - Use bold text or tables only when they make decisive information easier to find.
 - Make the title, headings, and opening sentences provide a useful map on their own.
@@ -74,6 +77,11 @@ Do not invent an estimate. If the duration is genuinely unknown, say what must b
 ### 8. Describe errors matter-of-factly
 
 State the symptom, cause if known, impact, and remedy or mitigation. Avoid alarmist filler, euphemisms, and vague warnings. Label uncertainty instead of presenting guesses as facts.
+
+Not "there seems to be a problem." Write:
+
+Test fails at `auth.spec.ts:42`: expected 200, got 401. Cause: missing auth
+header. Fix: add `Authorization: Bearer ${token}`.
 
 Put safety-critical warnings before the action they constrain.
 

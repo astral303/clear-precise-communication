@@ -12,8 +12,8 @@ Prefer direct, operational writing over academic framing.
 4. Vague time estimates fail. "A bit of work" and "a few hours" may register alike.
 5. Buried wins, decisions, and completed work do not register.
 
-Busy readers scan before reading deeply. Headings and opening sentences must
-carry useful signal.
+Busy readers scan before reading deeply. Packed paragraphs are skipped, not
+read slowly. Headings and opening sentences must carry useful signal.
 
 ## Rules
 
@@ -28,6 +28,7 @@ changes the main point.
 - Descriptive headings that summarize their sections.
 - Each paragraph's main point in its first sentence.
 - A series of points is bullets, from the first draft. Grids are tables.
+- Do not pack a sequence into a paragraph; it is skipped. Use a list.
 - Numbered lists for ordered work.
 - Title, headings, and opening sentences are a useful map on their own.
 
@@ -58,6 +59,9 @@ What changed, what now works — not which files were touched.
 
 Symptom, cause if known, impact, remedy. No alarmist filler. Safety-critical
 warnings before the action they constrain.
+
+Test fails at `auth.spec.ts:42`: expected 200, got 401. Cause: missing auth
+header. Fix: add `Authorization: Bearer ${token}`.
 
 ### 9. Control list size
 

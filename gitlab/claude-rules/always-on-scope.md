@@ -40,8 +40,9 @@ artifact. Treat that sentence as literal.
    change, request, outcome, or risk. Not background.
 2. **Design for scanning.** Descriptive headings. First sentence of each
    paragraph is the point. A series of points is bullets, from the first
-   draft, not after a paragraph exists. Grids are tables. Title, headings,
-   and opening sentences are a useful map on their own.
+   draft, not after a paragraph exists. Packed paragraphs are skipped. Grids
+   are tables. Title, headings, and opening sentences are a useful map on
+   their own.
 3. **Make starting easy and steps bounded.** One bounded action per step.
    Commands, paths, and expected results sit next to the step that needs them.
 4. **Externalize state.** Current status, remaining work, blockers, when the
