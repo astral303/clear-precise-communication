@@ -95,6 +95,7 @@ These have been offered and are rejected:
 - `changelog-impact-claims.md` — ratios a reader can reuse; no correctness theater.
 - `literal-verbs-not-idioms.md` — name the operation; do not analogize it.
 - `one-term-per-concept.md` — one name for one concept; no synonyms for variety.
+- `name-it-from-what-the-user-saw.md` — do not define a thing by who failed to possess it.
 - `no-rhetorical-appositives.md` — no theme-then-examples dash lists; the things are the subject.
 - `reviewer-facing-describe-dont-advocate.md` — Decision → Reason → Boundary; no verdicts.
 - `comments-earn-their-place.md` — structure or a test first; comments only for what code cannot say.

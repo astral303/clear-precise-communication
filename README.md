@@ -161,6 +161,8 @@ Read the complete one-file rule in [`rules/clear-precise-communication.md`](./ru
   (behavior first, then why it was necessary)
 - Literal verbs, not idioms (`deleted`, not `go with it`; `reports`, not `says`)
 - One term per concept; no synonyms for variety
+- Name a thing from what the user saw, not from who failed to possess it
+  (`not found`, not `a session ID that no agent stores`)
 - No rhetorical appositives (`X — a …, a …, a … —`); the things are the subject
 - Changelog: change class, verb + symptom, ratios a reader can reuse
 - Silently absent expected behavior is a Fix, not an Enhancement
