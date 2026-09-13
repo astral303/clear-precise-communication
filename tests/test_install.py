@@ -73,7 +73,7 @@ class SafetyTests(unittest.TestCase):
             (home / ".codex").mkdir()
             code, out = run(["--dry-run", "--agents", "codex"], home)
             self.assertEqual(code, 0)
-            self.assertIn("change(s)", out)
+            self.assertIn("will be applied:", out)
             self.assertFalse((home / ".codex" / "AGENTS.d").exists())
             self.assertFalse((home / ".codex" / "AGENTS.md").exists())
 
@@ -87,7 +87,9 @@ class InstallTests(unittest.TestCase):
                 home,
             )
             self.assertEqual(code, 0, out)
-            self.assertIn("Installed.", out)
+            self.assertIn("Changes applied, install complete.", out)
+            self.assertIn("- Point ", out)
+            self.assertRegex(out, r"- Point .+:\n\n")
             for agent in ("codex", "grok"):
                 agents_d = home / f".{agent}" / "AGENTS.d"
                 comm = agents_d / "clear-precise-communication.md"
@@ -151,7 +153,11 @@ class InstallTests(unittest.TestCase):
             dest.write_text("stale copy\n", encoding="utf-8")
             code, out = run(["--yes", "--agents", "codex"], home)
             self.assertEqual(code, 0, out)
-            self.assertIn("Backed up ~/.codex/AGENTS.d/clear-precise-communication.md to ", out)
+            self.assertIn(
+                "\nBacked up ~/.codex/AGENTS.d/clear-precise-communication.md to ",
+                out,
+            )
+            self.assertIn("\nChanges applied, install complete.", out)
             self.assertTrue(dest.is_symlink())
             self.assertEqual(
                 dest.resolve(),

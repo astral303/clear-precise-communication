@@ -195,7 +195,7 @@ def mkdir_op(dest: Path, home: Path) -> Operation | None:
         dest.mkdir(parents=True, exist_ok=True)
 
     return Operation(
-        title=f"create {label}",
+        title=f"Create {label}",
         old="",
         new="directory\n",
         label=label,
@@ -248,7 +248,7 @@ def link_or_copy_op(dest: Path, source: Path, home: Path) -> Operation | None:
             shutil.copy2(source, dest)
 
     return Operation(
-        title=f"install {label}",
+        title=f"Install {label}",
         old=old,
         new=new,
         label=label,
@@ -305,7 +305,7 @@ def patch_agents_md_op(
 
     names = ", ".join(filename for filename, _ in installed if filename not in existing)
     return Operation(
-        title=f"point {label} at {names}",
+        title=f"Point {label} at {names}",
         old=existing,
         new=new,
         label=label,
@@ -483,6 +483,7 @@ def apply_operations(ops: Sequence[Operation], home: Path, stdout) -> Path | Non
         for src in to_backup:
             saved = backup_path(src, backup_root, home)
             stdout.write(f"Backed up {tilde(src, home)} to {saved}\n")
+        stdout.write("\n")
     for op in ops:
         op.apply()
     return backup_root
@@ -667,7 +668,7 @@ def checkbox_view(
     checked: Sequence[bool],
     index: int,
 ) -> tuple[str, int]:
-    lines = ["Select agents to configure", ""]
+    lines = ["Select agents to configure:", ""]
     for i, name in enumerate(agents):
         mark = "x" if checked[i] else " "
         cursor = ">" if i == index else " "
@@ -709,8 +710,14 @@ def checkbox_tui(agents: Sequence[str], home: Path, stdout) -> list[str]:
         stdout.flush()
 
 
+def change_noun(count: int) -> str:
+    if count == 1:
+        return "1 change"
+    return f"{count} changes"
+
+
 def confirm_apply(count: int, stdin, stdout) -> bool:
-    stdout.write(f"Apply {count} change(s)? [y/N] ")
+    stdout.write(f"Apply {change_noun(count)}? [y/N] ")
     stdout.flush()
     answer = stdin.readline()
     if not answer:
@@ -722,10 +729,10 @@ def print_ops(ops: Sequence[Operation], stdout) -> None:
     if not ops:
         stdout.write("Already installed.\n")
         return
-    stdout.write(f"{len(ops)} change(s):\n\n")
+    stdout.write(f"To install, {change_noun(len(ops))} will be applied:\n\n")
     color = bool(getattr(stdout, "isatty", lambda: False)())
     for op in ops:
-        stdout.write(op.title + "\n")
+        stdout.write(f"- {op.title}:\n\n")
         text = unified_diff(op.old, op.new, op.label, color=color)
         stdout.write(text)
         if not text.endswith("\n"):
@@ -874,8 +881,9 @@ def main(
         if not confirm_apply(len(ops), stdin, stdout):
             stdout.write("No changes applied.\n")
             return 1
+    stdout.write("\n")
     apply_operations(ops, home, stdout)
-    stdout.write("Installed.\n")
+    stdout.write("Changes applied, install complete.\n")
     return 0
 
 
