@@ -13,140 +13,7 @@ attention, or little time.
 > turn-by-turn replies. For the strongest focus on action-first conversational
 > guidance, use Ayoub Ghriss's excellent [i-have-adhd skill](https://github.com/ayghri/i-have-adhd).
 
-## Two install paths
-
-A skill is the wrong delivery mechanism for the always-on writing rules.
-
-- **Codex** obeys skill frontmatter. A description that says to use the skill
-  for every conversation loads the full text on every turn. Standing text
-  belongs in `~/.codex/AGENTS.md`, which can point at a sibling file, not in a
-  skill. (`~/.codex/rules` is permission policy, not writing guidance.)
-- **Claude Code** often does not invoke skills. Standing text belongs in
-  `~/.claude/rules/`, which loads at session start.
-
-Claude also needs more than the one-file rule: it treats comments, drafts, and
-test names as exempt, and it skips structure until a later pass.
-[`claude-rules/`](./claude-rules/) closes those holes. Codex follows
-[`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md);
-extra copies would cost tokens every turn.
-
-See [INSTALL.md](./INSTALL.md) for verification, updates, and uninstallation.
-
-### Codex and other agents that obey global instructions
-
-Codex's standing-instructions file is `~/.codex/AGENTS.md`. Symlink or copy
-[`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md)
-next to it, then add a session-start pointer so Codex reads it once.
-
-From the repository root:
-
-```powershell
-$repo = (Get-Location).Path
-$link = Join-Path $env:USERPROFILE ".codex\clear-precise-communication.md"
-if (Test-Path $link) { Remove-Item $link }
-New-Item -ItemType SymbolicLink -Path $link -Target (Join-Path $repo "rules\clear-precise-communication.md")
-```
-
-```bash
-ln -sfn "$(pwd)/rules/clear-precise-communication.md" ~/.codex/clear-precise-communication.md
-```
-
-If the host cannot create a file symlink, copy the file instead. Add this
-stanza to `~/.codex/AGENTS.md` if it is not already there:
-
-```markdown
-## Mandatory ambient communication and writing guidance
-
-At the beginning of each session, read `~/.codex/clear-precise-communication.md` completely and apply it throughout the session.
-
-Do not reread it during the same session, unless immediately after a compaction.
-```
-
-Do not install the always-on writing rules as a Codex plugin or skill.
-
-### Claude Code
-
-Copy or junction [`claude-rules/`](./claude-rules/) into `~/.claude/rules/` so
-the files load at session start with no invocation. They have no `paths:`
-frontmatter: a PR body drafted in chat still matches.
-
-From the repository root:
-
-```powershell
-$repo = (Get-Location).Path
-$rules = Join-Path $env:USERPROFILE ".claude\rules"
-New-Item -ItemType Directory -Force -Path $rules | Out-Null
-$link = Join-Path $rules "clear-precise-writing"
-if (Test-Path $link) { Remove-Item $link }
-New-Item -ItemType Junction -Path $link -Target (Join-Path $repo "claude-rules")
-```
-
-```bash
-mkdir -p ~/.claude/rules
-ln -sfn /path/to/clear-precise-communication/claude-rules ~/.claude/rules/clear-precise-writing
-```
-
-Start a new Claude Code session. In `/context`, the files should appear under
-Memory files.
-
-If you already have a short `~/.claude/rules/documentation-tone.md`, remove it.
-`claude-rules/documentation-tone.md` replaces it.
-
-[`claude-rules/`](./claude-rules/) is the full always-on set.
-[`claude-rules-economy/`](./claude-rules-economy/) is the same constraints
-with less repetition. Junction that directory instead when the context budget
-is tight. The full set is harder for Claude to ignore.
-
-GitLab-oriented copies live under [`gitlab/`](./gitlab/). They are generated
-from the trees above; do not edit them. Rebuild with
-`uv run python tools/generate_gitlab_rules.py`.
-
-| Artifact | GitHub | GitLab |
-| --- | ---: | ---: |
-| `claude-rules/` | 25.6k | 25.6k |
-| `claude-rules-economy/` | 10.5k | 10.5k |
-
-GitHub is pull-request wording; GitLab is merge-request wording. Counts are
-ctok 5.0 (Claude 5).
-
-Codex and other agents that obey global instructions use
-[`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md),
-not the Claude trees. That file and the commit-message skill are not
-GitHub- or GitLab-specific.
-[`claude-rules/clear-precise-communication.md`](./claude-rules/clear-precise-communication.md)
-is the one-file body plus a Claude always-on preamble; it is counted in the
-table above. Edit the Codex file and copy the body (see Customize). The
-economy ten-rule file is a shortened rewrite, not a copy.
-
-| Artifact | Claude 5 | Codex |
-| --- | ---: | ---: |
-| `rules/clear-precise-communication.md` | 2.2k | 1.4k |
-| `write-commit-messages` | 2.3k | 1.5k |
-
-Codex counts are tiktoken o200k_base. Do not use them as a Claude estimate.
-Rebuild both tables with `uv run python tools/count_claude_tokens.py --table`.
-
-### Commit messages
-
-PR titles still lead with the user-visible bug. Commit subjects follow
-[`skills/write-commit-messages/SKILL.md`](./skills/write-commit-messages/SKILL.md):
-the changed behavior or invariant first, then the defect, constraint, or
-tradeoff that required it.
-
-That file is a skill on purpose. It loads when the agent is writing a commit,
-not on every turn.
-
-Install:
-
-- Copy or symlink `skills/write-commit-messages/` into `~/.codex/skills/`
-- Copy or symlink the same directory into `~/.claude/skills/`
-
-Use:
-
-- Codex: `$write-commit-messages` (also implicit on commit work)
-- Claude: `/write-commit-messages`
-
-## What changes
+## What it does
 
 The rules put the primary value first, expose state and next actions when they
 matter, and remove details that slow the reader without helping them act.
@@ -163,54 +30,86 @@ matter, and remove details that slow the reader without helping them act.
 > - Verified: staging login flow
 > - Next owner: platform team
 
-## Core rules
+The one-file rule is
+[`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md).
+Claude Code loads extra files under [`claude-rules/`](./claude-rules/) so
+comments, drafts, test names, and PR text drafted in chat stay in scope.
 
-1. Lead with the primary value.
-2. Design for scanning.
-3. Make starting easy and steps bounded.
-4. Externalize current state, dependencies, and next actions.
-5. Suppress tangents.
-6. Give concrete time estimates when time matters.
-7. Make progress and outcomes visible.
-8. Describe errors matter-of-factly.
-9. Keep lists focused and prioritized.
-10. Remove preambles, repeated recaps, and generic closers.
+## Install
 
-Read the complete one-file rule in [`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md).
+```bash
+./install/install.sh
+```
 
-[`claude-rules/`](./claude-rules/) adds constraints that file did not enforce:
+```powershell
+./install/install.ps1
+```
 
-- Noun-phrase labels, not question headings or `What`/`Where`/`Why` comment openers
-- Write from the reader's next action, not as a narration of the diff
-- If the reader cannot act on a detail without this computer, it stays in chat
-  or a gitignored plan — not a PR, commit, changelog, or README
-- Scannable PR structure: tables for grids, one-fact bullets
-- Title and opening name the user-visible effect. Commit messages use
-  [`write-commit-messages`](./skills/write-commit-messages/SKILL.md) instead
-  (behavior first, then why it was necessary)
-- Literal verbs, not idioms (`deleted`, not `go with it`; `reports`, not `says`)
-- One term per concept; no synonyms for variety
-- No rhetorical appositives (`X — a …, a …, a … —`); the things are the subject
-- Changelog: change class, verb + symptom, ratios a reader can reuse
-- Silently absent expected behavior is a Fix, not an Enhancement
-- Second person (`you`) only in product text; records use `the user`
-- Shortest phrase that keeps the fact
-- Describe work to a reviewer; do not advocate for it
-- Comments only for what code cannot say; structure or a test first
-- Subject first, then the verb (`Unrecognized formats are skipped`, not `One the format does not recognize…`)
-- Name the type, not a nickname
-- Relay a finding as what the user sees, then the fix
+A bare run writes nothing until you approve. In a terminal it shows a checkbox
+of detected agents (up/down, Space, Enter), then unified diffs, then
+`Apply? [y/N]`. `-h` prints flags. `--dry-run` stops after the diffs.
+`--doctor` checks an existing install. `--yes` skips the prompts.
 
-The full set restates that comments, drafts, and test names are in scope in
-each file. `final-scan.md` is the post-write search. The economy set says
-that once, in `always-on-scope.md`.
+The installer looks for `~/.codex`, `~/.claude`, and `~/.grok`.
+
+Always-on writing is a standing file, not a plugin. Codex would reload a
+plugin on every turn; Claude often would not invoke it; many orgs only allow
+blessed plugins. This install works in those cases. The commit-message skill
+stays a skill: it loads when you are writing a commit, not every turn.
+
+To undo: delete the symlink or copy and the `AGENTS.md` stanza. `--doctor`
+reports what is missing.
+
+## What gets installed
+
+| Agent | Always-on | Skill |
+| --- | --- | --- |
+| Codex, Grok | `AGENTS.d/` plus an `AGENTS.md` pointer | `~/.<agent>/skills/write-commit-messages` |
+| Claude Code | `~/.claude/rules/clear-precise-writing` → `claude-rules/` | `~/.claude/skills/write-commit-messages` |
+
+Codex and Grok also get
+[`rules/clean-code-principles.md`](./rules/clean-code-principles.md) unless
+you pass `--no-clean-code`. Claude's extra files live in
+[`claude-rules/`](./claude-rules/). Use `--claude-set economy` for
+[`claude-rules-economy/`](./claude-rules-economy/) when the context budget is
+tight. Use `--gitlab` for merge-request wording under [`gitlab/`](./gitlab/).
+
+| Artifact | GitHub | GitLab |
+| --- | ---: | ---: |
+| `claude-rules/` | 25.6k | 25.6k |
+| `claude-rules-economy/` | 10.5k | 10.5k |
+
+GitHub is pull-request wording; GitLab is merge-request wording. Counts are
+ctok 5.0 (Claude 5).
+
+| Artifact | Claude 5 | Codex |
+| --- | ---: | ---: |
+| `rules/clear-precise-communication.md` | 2.2k | 1.4k |
+| `write-commit-messages` | 2.3k | 1.5k |
+
+Codex counts are tiktoken o200k_base. Do not use them as a Claude estimate.
+Rebuild both tables with `uv run python tools/count_claude_tokens.py --table`.
+
+[`claude-rules/clear-precise-communication.md`](./claude-rules/clear-precise-communication.md)
+is the one-file body plus a Claude always-on preamble. The economy ten-rule
+file is a shortened rewrite, not a copy.
+
+## Commit messages
+
+PR titles still lead with the user-visible bug. Commit subjects follow
+[`skills/write-commit-messages/SKILL.md`](./skills/write-commit-messages/SKILL.md):
+the changed behavior or invariant first, then the defect, constraint, or
+tradeoff that required it.
+
+- Codex: `$write-commit-messages` (also implicit on commit work)
+- Claude: `/write-commit-messages`
 
 ## Customize
 
 Edit [`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md).
-Copy the body into `claude-rules/clear-precise-communication.md`, keeping the
-always-on preamble on the Claude copy. Re-copy into `~/.codex/` if that file
-is not a symlink. Start a new session so the revised text enters fresh context.
+If the install is a symlink, `git pull` is enough. If it is a copy, copy the
+body into `claude-rules/clear-precise-communication.md` and keep the
+always-on preamble. Start a new session so the revised text enters context.
 
 ## Attribution
 

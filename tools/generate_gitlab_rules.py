@@ -118,9 +118,7 @@ source trees and run:
 The script deletes files under `gitlab/` that no longer match a source
 file, including leftover `pr-*.md` names after a rename.
 
-Install the same way as the pull-request trees: junction
-`gitlab/claude-rules/` or `gitlab/claude-rules-economy/` into
-`~/.claude/rules/`.
+Install with `./install/install.sh --gitlab` from the repository root.
 
 Lines may run past 80 columns. The generator does not reflow; wrap does
 not change what the model reads.
