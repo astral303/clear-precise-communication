@@ -17,6 +17,32 @@ def run(args: list[str], home: Path) -> tuple[int, str]:
     return code, stdout.getvalue()
 
 
+class CheckboxViewTests(unittest.TestCase):
+    def test_redraw_moves_up_exactly_the_printed_lines(self) -> None:
+        home = Path("/tmp/fake-home")
+        view, line_count = inst.checkbox_view(
+            ["codex", "claude", "grok"],
+            home,
+            [True, True, False],
+            1,
+        )
+        self.assertTrue(view.endswith("\n"))
+        self.assertEqual(view.count("\n"), line_count)
+        self.assertEqual(inst.checkbox_clear(line_count), f"\r\x1b[{line_count}A\x1b[J")
+        self.assertIn("> [x] claude", view)
+        self.assertIn("  [ ] grok", view)
+
+
+class DiffColorTests(unittest.TestCase):
+    def test_tty_diffs_request_color(self) -> None:
+        plain = inst.unified_diff("old line\n", "new line\n", "sample.md", color=False)
+        colored = inst.unified_diff("old line\n", "new line\n", "sample.md", color=True)
+        self.assertIn("--- a/sample.md", plain)
+        self.assertIn("+++ b/sample.md", plain)
+        self.assertNotIn("\x1b[", plain)
+        self.assertIn("\x1b[", colored)
+
+
 class HelpTests(unittest.TestCase):
     def test_help_says_bare_run_writes_nothing(self) -> None:
         stdout = io.StringIO()
@@ -100,7 +126,7 @@ class InstallTests(unittest.TestCase):
             code, out = run(["--yes", "--agents", "codex"], home)
             self.assertEqual(code, 0, out)
             self.assertIn("Already installed.", out)
-            self.assertNotIn("Backup:", out)
+            self.assertNotIn("Backed up ", out)
             self.assertEqual(agents_md.read_text(encoding="utf-8"), before)
 
     def test_doctor_ok_then_fails_if_stanza_removed(self) -> None:
@@ -125,17 +151,17 @@ class InstallTests(unittest.TestCase):
             dest.write_text("stale copy\n", encoding="utf-8")
             code, out = run(["--yes", "--agents", "codex"], home)
             self.assertEqual(code, 0, out)
-            self.assertIn("Backup:", out)
+            self.assertIn("Backed up ~/.codex/AGENTS.d/clear-precise-communication.md to ", out)
             self.assertTrue(dest.is_symlink())
             self.assertEqual(
                 dest.resolve(),
                 (REPO / "rules" / "clear-precise-communication.md").resolve(),
             )
             backup_line = next(
-                line for line in out.splitlines() if line.startswith("Backup:")
+                line for line in out.splitlines() if line.startswith("Backed up ")
             )
-            backup_root = Path(backup_line.split(" ", 1)[1])
-            saved = backup_root / ".codex" / "AGENTS.d" / "clear-precise-communication.md"
+            saved = Path(backup_line.rsplit(" to ", 1)[1])
+            self.assertTrue(saved.name.endswith("clear-precise-communication.md"))
             self.assertEqual(saved.read_text(encoding="utf-8"), "stale copy\n")
 
     def test_gitlab_economy_points_at_generated_tree(self) -> None:

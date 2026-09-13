@@ -53,7 +53,9 @@ Do not reread it during the same session, unless writing or reviewing code after
 @dataclass
 class Operation:
     title: str
-    diff: str
+    old: str
+    new: str
+    label: str
     dest: Path
     backup_src: Path | None
     apply: Callable[[], None]
@@ -72,7 +74,7 @@ def tilde(path: Path, home: Path) -> str:
         return str(path)
 
 
-def unified_diff(old: str, new: str, label: str) -> str:
+def _difflib_unified(old: str, new: str, label: str) -> str:
     return "".join(
         difflib.unified_diff(
             old.splitlines(keepends=True),
@@ -83,8 +85,34 @@ def unified_diff(old: str, new: str, label: str) -> str:
     )
 
 
-def symlink_diff(label: str, source: Path) -> str:
-    return unified_diff("", f"symlink → {source}\n", label)
+def unified_diff(old: str, new: str, label: str, *, color: bool = False) -> str:
+    with tempfile.TemporaryDirectory() as raw:
+        left = Path(raw) / "old"
+        right = Path(raw) / "new"
+        left.write_text(old, encoding="utf-8")
+        right.write_text(new, encoding="utf-8")
+        command = [
+            "diff",
+            "-u",
+            "--label",
+            f"a/{label}",
+            "--label",
+            f"b/{label}",
+        ]
+        if color:
+            command.append("--color=always")
+        command.extend([str(left), str(right)])
+        try:
+            completed = subprocess.run(
+                command, capture_output=True, text=True, check=False
+            )
+        except FileNotFoundError:
+            return _difflib_unified(old, new, label)
+        if completed.returncode in (0, 1):
+            return completed.stdout
+        if color:
+            return unified_diff(old, new, label, color=False)
+        return _difflib_unified(old, new, label)
 
 
 def detect_agents(home: Path) -> list[str]:
@@ -168,7 +196,9 @@ def mkdir_op(dest: Path, home: Path) -> Operation | None:
 
     return Operation(
         title=f"create {label}",
-        diff=unified_diff("", f"directory\n", label),
+        old="",
+        new="directory\n",
+        label=label,
         dest=dest,
         backup_src=None,
         apply=apply,
@@ -199,12 +229,12 @@ def link_or_copy_op(dest: Path, source: Path, home: Path) -> Operation | None:
     label = display_path(dest, home)
     backup_src = dest if dest.exists() or dest.is_symlink() else None
     if use_symlinks():
-        diff = symlink_diff(label, source)
+        old, new = "", f"symlink → {source}\n"
     elif source.is_dir():
-        diff = unified_diff("", f"junction or copy → {source}\n", label)
+        old, new = "", f"junction or copy → {source}\n"
     else:
         old = dest.read_text(encoding="utf-8") if dest.is_file() and not dest.is_symlink() else ""
-        diff = unified_diff(old, source.read_text(encoding="utf-8"), label)
+        new = source.read_text(encoding="utf-8")
 
     def apply() -> None:
         dest.parent.mkdir(parents=True, exist_ok=True)
@@ -219,7 +249,9 @@ def link_or_copy_op(dest: Path, source: Path, home: Path) -> Operation | None:
 
     return Operation(
         title=f"install {label}",
-        diff=diff,
+        old=old,
+        new=new,
+        label=label,
         dest=dest,
         backup_src=backup_src,
         apply=apply,
@@ -274,7 +306,9 @@ def patch_agents_md_op(
     names = ", ".join(filename for filename, _ in installed if filename not in existing)
     return Operation(
         title=f"point {label} at {names}",
-        diff=unified_diff(existing, new, label),
+        old=existing,
+        new=new,
+        label=label,
         dest=agents_md,
         backup_src=backup_src,
         apply=apply,
@@ -446,9 +480,9 @@ def apply_operations(ops: Sequence[Operation], home: Path, stdout) -> Path | Non
         backup_root = Path(
             tempfile.mkdtemp(prefix="clear-precise-communication-")
         )
-        stdout.write(f"Backup: {backup_root}\n")
         for src in to_backup:
-            backup_path(src, backup_root, home)
+            saved = backup_path(src, backup_root, home)
+            stdout.write(f"Backed up {tilde(src, home)} to {saved}\n")
     for op in ops:
         op.apply()
     return backup_root
@@ -627,27 +661,39 @@ def normalize_key(raw: str) -> str:
     return raw
 
 
+def checkbox_view(
+    agents: Sequence[str],
+    home: Path,
+    checked: Sequence[bool],
+    index: int,
+) -> tuple[str, int]:
+    lines = ["Select agents to configure", ""]
+    for i, name in enumerate(agents):
+        mark = "x" if checked[i] else " "
+        cursor = ">" if i == index else " "
+        location = home / AGENT_HOMES[name]
+        lines.append(f"{cursor} [{mark}] {name:<7} {tilde(location, home)}")
+    lines.append("")
+    lines.append("Up/down  Space toggle  Enter continue  q abort")
+    return "\n".join(lines) + "\n", len(lines)
+
+
+def checkbox_clear(line_count: int) -> str:
+    return f"\r\x1b[{line_count}A\x1b[J"
+
+
 def checkbox_tui(agents: Sequence[str], home: Path, stdout) -> list[str]:
     checked = [True] * len(agents)
     index = 0
     stdout.write("\x1b[?25l")
     try:
         while True:
-            lines = ["Select agents to configure", ""]
-            for i, name in enumerate(agents):
-                mark = "x" if checked[i] else " "
-                cursor = ">" if i == index else " "
-                location = home / AGENT_HOMES[name]
-                lines.append(
-                    f"{cursor} [{mark}] {name:<7} {tilde(location, home)}"
-                )
-            lines.append("")
-            lines.append("Up/down  Space toggle  Enter continue  q abort")
-            view = "\n".join(lines)
+            view, line_count = checkbox_view(agents, home, checked, index)
             stdout.write(view)
             stdout.flush()
             key = normalize_key(read_key())
-            stdout.write(f"\x1b[{len(lines)}A\x1b[J")
+            stdout.write(checkbox_clear(line_count))
+            stdout.flush()
             if key == "up":
                 index = (index - 1) % len(agents)
             elif key == "down":
@@ -677,10 +723,12 @@ def print_ops(ops: Sequence[Operation], stdout) -> None:
         stdout.write("Already installed.\n")
         return
     stdout.write(f"{len(ops)} change(s):\n\n")
+    color = bool(getattr(stdout, "isatty", lambda: False)())
     for op in ops:
         stdout.write(op.title + "\n")
-        stdout.write(op.diff)
-        if not op.diff.endswith("\n"):
+        text = unified_diff(op.old, op.new, op.label, color=color)
+        stdout.write(text)
+        if not text.endswith("\n"):
             stdout.write("\n")
         stdout.write("\n")
 
