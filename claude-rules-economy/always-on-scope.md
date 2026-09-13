@@ -58,6 +58,7 @@ force whether or not anyone invoked a skill.
 - `changelog-impact-claims.md` — ratios; no correctness theater
 - `literal-verbs-not-idioms.md` — name the operation
 - `one-term-per-concept.md` — one name per concept
+- `name-it-from-what-the-user-saw.md` — not who failed to possess it; what the user saw
 - `no-rhetorical-appositives.md` — no theme-then-examples dash lists
 - `reviewer-facing-describe-dont-advocate.md` — Decision → Reason → Boundary
 - `comments-earn-their-place.md` — structure or a test first

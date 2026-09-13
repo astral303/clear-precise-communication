@@ -28,7 +28,9 @@ you added.
 | "An ID that turns up nowhere is reported as not found." | Cut. They will see the message. |
 | "Pi/OMP sessions that only open by ID have nothing on the list to click." | Keep. Silence would strand them. |
 
-Prefer the words on screen over identifiers. Cut engineer-only vocabulary from
+Prefer the words on screen over identifiers. Do not define a thing by who
+failed to possess it; see `name-it-from-what-the-user-saw.md`. Cut
+engineer-only vocabulary from
 user text unless the user must type it: `bounded`, `resolved`, `in force`,
 `the lookup`, `canonical`. Once you pick a term, reuse it verbatim; see
 `one-term-per-concept.md`. In plans and notes, first mention of a type is the
