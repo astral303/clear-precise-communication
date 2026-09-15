@@ -54,6 +54,7 @@ Search the artifact (and the diff, for comments and test names) for:
 | `One that`, `One the`, `one whose`, `, for which ` | Noun first, then verb |
 | `you` / `your` in a title, commit, MR body, or comment | `the user`, unless it quotes a product string |
 | `that no ` / `when no ` plus `stores` / `stored` / `holds` / `contains` / `emits` / `returns` naming an absence | what the user saw; see `name-it-from-what-the-user-saw.md` |
+| `anew`, `needs no`, `suffices`; `so` after a general truth about the system | State the rule; see `no-premise-so-consequence.md` |
 | UUID-shaped IDs, absolute paths, screenshot timings, local branch names in anything that leaves the machine | "In one example session, …" plus facts; see `machine-local-details-stay-local.md` |
 | branch names, `worth doing`, `plans/`, `PR A`, timings in a PR body | Cut |
 

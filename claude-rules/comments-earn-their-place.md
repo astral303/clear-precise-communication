@@ -55,6 +55,7 @@ implementation is unquestionably correct.
 | Idioms (`goes with the parent`) | Literal verbs; see `literal-verbs-not-idioms.md` |
 | Verdicts (`this is safe`, `mechanical`, `can't regress`) | Describe; see `reviewer-facing-describe-dont-advocate.md` |
 | Narration of the diff you just wrote | The reader has the code, not your session |
+| A general truth, `so`, the behavior (`needs no write`, `read anew`) | State the rule; see `no-premise-so-consequence.md` |
 
 Keep internal checklist notes visibly separate from text destined for GitHub.
 

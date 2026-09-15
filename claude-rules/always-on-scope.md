@@ -100,6 +100,7 @@ These have been offered and are rejected:
 - `no-rhetorical-appositives.md` — no theme-then-examples dash lists; the things are the subject.
 - `reviewer-facing-describe-dont-advocate.md` — Decision → Reason → Boundary; no verdicts.
 - `comments-earn-their-place.md` — structure or a test first; comments only for what code cannot say.
+- `no-premise-so-consequence.md` — no `X, so Y` from a general truth; instruction in execution order.
 - `shortest-phrase-that-keeps-the-fact.md` — rewrite each phrase shorter and keep it unless a fact was lost; cut clauses that prove the check instead of stating the result.
 - `second-person-only-in-product-text.md` — `you` in changelogs and UI copy, `the user` in titles, commits, MR bodies and comments.
 - `subject-first-sentences.md` — noun then verb; do not park the fact in a relative (`One that`, `one whose`, `, for which `).

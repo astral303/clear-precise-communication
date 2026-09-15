@@ -76,8 +76,8 @@ tight. Use `--gitlab` for merge-request wording under [`gitlab/`](./gitlab/).
 
 | Artifact | GitHub | GitLab |
 | --- | ---: | ---: |
-| `claude-rules/` | 26.7k | 26.7k |
-| `claude-rules-economy/` | 10.9k | 10.9k |
+| `claude-rules/` | 28k | 28k |
+| `claude-rules-economy/` | 11.3k | 11.3k |
 
 GitHub is pull-request wording; GitLab is merge-request wording. Counts are
 ctok 5.0 (Claude 5).

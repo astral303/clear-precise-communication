@@ -18,5 +18,7 @@ consequence of "simplifying", a limit the reader would assume away. Explain
 
 Cut: restatement of the signature, of the next line, of the test's name;
 `What X does` / `Where X lives`; idioms; verdicts (`this is safe`); narration
-of the diff. Thorough restatement is noise. Do not leave a comment as a record
-of a structural problem you chose not to fix.
+of the diff; a general truth, `so`, the behavior (`needs no write`). Thorough
+restatement is noise. Do not leave a comment as a record of a structural
+problem you chose not to fix. State the rule; do not derive it — see
+`no-premise-so-consequence.md`.

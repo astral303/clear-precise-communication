@@ -40,6 +40,7 @@ Search the artifact (and the diff, for comments and test names):
 | `One that`, `One the`, `one whose`, `, for which ` | Noun first, then verb |
 | `you` / `your` in a title, commit, MR description, or comment | `the user`, unless it quotes a product string |
 | `that no ` / `when no ` plus `stores` / `stored` / `emits` naming an absence | what the user saw; see `name-it-from-what-the-user-saw.md` |
+| `anew`, `needs no`, `suffices`; `so` after a general truth | State the rule; see `no-premise-so-consequence.md` |
 | UUID-shaped IDs, absolute paths, screenshot timings in anything that leaves the machine | "In one example session, …"; see `machine-local-details-stay-local.md` |
 | branch names, `worth doing`, `plans/`, `MR A`, timings in an MR description | Cut |
 

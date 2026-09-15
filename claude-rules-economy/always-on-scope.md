@@ -62,6 +62,7 @@ force whether or not anyone invoked a skill.
 - `no-rhetorical-appositives.md` — no theme-then-examples dash lists
 - `reviewer-facing-describe-dont-advocate.md` — Decision → Reason → Boundary
 - `comments-earn-their-place.md` — structure or a test first
+- `no-premise-so-consequence.md` — no `X, so Y` from a general truth; instruction in execution order
 - `shortest-phrase-that-keeps-the-fact.md` — shorter form unless a fact was lost
 - `second-person-only-in-product-text.md` — `you` in product text, `the user` in records
 - `subject-first-sentences.md` — noun then verb; no parked relative (`One that`, `one whose`, `, for which `)
