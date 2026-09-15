@@ -52,6 +52,7 @@ force whether or not anyone invoked a skill.
 - `noun-phrase-labels-not-questions.md` — noun-phrase labels, no What/Where/Why openers
 - `write-from-the-reader.md` — reader's next action, not the diff
 - `mr-text-leads-with-the-bug.md` — user-visible effect first
+- `setup-then-point-is-a-tour.md` — no setup → twist; last sentence is not the point
 - `mr-text-scannable-structure.md` — tables for grids, one-fact bullets
 - `machine-local-details-stay-local.md` — if they cannot act on it without this computer, it stays local
 - `changelog-entry-style.md` — change class, verb + symptom

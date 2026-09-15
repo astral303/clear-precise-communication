@@ -29,7 +29,9 @@ user-visible effect, not the refactor that enabled it.
 | Share fold state through the scratch buffer | Keep a folded tool run folded when the next entry is empty |
 
 If a reader who never opened the diff cannot tell what improved, the title is
-wrong.
+wrong. A title that walks setup → `instead of` the bug is a tour. See
+`setup-then-point-is-a-tour.md`. Do not open a body with `Until now` or
+`Let `. Do not park the bug in `although` or in the last sentence.
 
 Name every key the change touches, not only the one that headlines. Use the
 changelog's noun for the thing (`truncated messages`, not `bodies`). A key

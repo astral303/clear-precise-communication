@@ -10,7 +10,9 @@ Title, headings, and the first sentence of each section name the user-visible
 problem or effect, the after-state, and the next action when one is needed.
 Headings are noun phrases (`Changes`, `Rationale for X`), not questions or
 What/Where/Why/Whether/How/Which openers. Sentences start with the noun, then
-the verb — not `One that` / `One the` / `one whose` / `, for which `.
+the verb — not `One that` / `One the` / `one whose` / `, for which `. If the
+point is in `instead of`, `although`, or the last sentence of a setup chain,
+rewrite. See `setup-then-point-is-a-tour.md`.
 
 ## 2. Data shape
 
@@ -41,6 +43,7 @@ Search the artifact (and the diff, for comments and test names):
 | `you` / `your` in a title, commit, MR description, or comment | `the user`, unless it quotes a product string |
 | `that no ` / `when no ` plus `stores` / `stored` / `emits` naming an absence | what the user saw; see `name-it-from-what-the-user-saw.md` |
 | `anew`, `needs no`, `suffices`; `so` after a general truth | State the rule; see `no-premise-so-consequence.md` |
+| `Let `, `Until now`, `instead of`, `although ` burying the bug | Point first; see `setup-then-point-is-a-tour.md` |
 | UUID-shaped IDs, absolute paths, screenshot timings in anything that leaves the machine | "In one example session, …"; see `machine-local-details-stay-local.md` |
 | branch names, `worth doing`, `plans/`, `MR A`, timings in an MR description | Cut |
 

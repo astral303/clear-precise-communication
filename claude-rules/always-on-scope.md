@@ -90,6 +90,7 @@ These have been offered and are rejected:
 - `noun-phrase-labels-not-questions.md` — labels are noun phrases, not questions or What/Where/Why openers.
 - `write-from-the-reader.md` — write for the reader's next action, not as a narration of the diff.
 - `pr-text-leads-with-the-bug.md` — title and opening name the user-visible problem or effect.
+- `setup-then-point-is-a-tour.md` — no setup → symptom → twist; the last sentence must not be the point.
 - `pr-text-scannable-structure.md` — tables for grids, one-fact bullets, no prose restating bullets.
 - `machine-local-details-stay-local.md` — if the reader cannot act on it without this computer, it stays in chat or a gitignored plan.
 - `changelog-entry-style.md` — change class, standalone parent summary, verb + symptom.

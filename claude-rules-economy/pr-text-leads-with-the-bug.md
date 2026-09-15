@@ -19,7 +19,8 @@ changes join with a semicolon, each with its own verb.
 | Refactor session lookup into a three-pass resolver | Report a missing session ID as not found |
 
 If a reader who never opened the diff cannot tell what improved, the title is
-wrong.
+wrong. Setup → `instead of` the bug is a tour; see
+`setup-then-point-is-a-tour.md`. No `Until now` or `Let ` as the opening.
 
 Body order:
 
