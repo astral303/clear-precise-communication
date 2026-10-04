@@ -12,11 +12,11 @@ UI already says on screen.
 
 Every durable artifact, and **code comments and doc comments exactly as much as
 READMEs**. Reading this as "user-facing docs only" is the mistake that let it
-be ignored three times.
+be ignored three times. The set is the list in `always-on-scope.md`.
 
-Applies to: READMEs, user docs, changelogs, PR bodies, `///` comments, `//`
-comments, module docs, error-string comments, and any prose that explains
-behavior.
+Examples, not a boundary: READMEs, user docs, changelogs, pull request text,
+commit text, `///` comments, `//` comments, module docs, error-string
+comments, and any prose that explains behavior.
 
 ## Usefulness test
 
@@ -34,6 +34,10 @@ that leaves the machine. See `machine-local-details-stay-local.md`.
 
 A sentence can be true and still fail this test. Truth is not the bar.
 Usefulness is.
+
+A sentence whose job is to tell the reader what changed, before they use
+the build, stays. Cutting it because they would see the change by running
+the software removes the reason the sentence exists.
 
 ## Do not narrate the diff
 
@@ -80,6 +84,11 @@ a test's own name. See `comments-earn-their-place.md`.
 
 - "I documented it so the README would be complete." Completeness that restates
   the UI is padding. Completeness that names a limitation is useful.
+- "It is not in the examples, so the rule skips it." The examples are not
+  a boundary.
+- "They will see it when they run the software, so cut the summary." The
+  summary exists so a reader who has not run the build can learn what
+  changed.
 - "It's a comment, so the reader is a programmer." Programmers still do not
   need the next line of code repeated in English.
 - "The changelog should mention the mechanism." The parent bullet is the
@@ -90,6 +99,7 @@ a test's own name. See `comments-earn-their-place.md`.
 
 ## Final scan
 
-For each sentence in docs and comments: if the reader learns it by clicking,
+For each sentence in a durable artifact: if the reader learns it by clicking,
 running, or reading the next line of code, delete it. If the vocabulary is
-from the type name and not from the screen, replace it.
+from the type name and not from the screen, replace it. Keep a summary whose
+job is to say what changed before the reader uses the build.

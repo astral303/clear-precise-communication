@@ -1,9 +1,9 @@
 # Write from the reader, not from the diff
 
-Before a sentence goes into a README, doc comment, or inline comment, name
-what the reader does differently for having read it. If they would find that
-out by doing it, cut the sentence. Comments and drafts are in scope the same
-as READMEs.
+Before a sentence goes into a durable artifact, name what the reader does
+differently for having read it. If they would find that out by doing it,
+cut the sentence. Comments and drafts are in scope the same as READMEs.
+Examples in this file are not a boundary. A summary of what changed stays.
 
 Document what the software will **not** tell the reader at the right moment.
 Do not document what the UI already shows.
