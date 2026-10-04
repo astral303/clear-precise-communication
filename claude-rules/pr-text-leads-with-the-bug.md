@@ -33,11 +33,13 @@ wrong. A title that walks setup → `instead of` the bug is a tour. See
 `setup-then-point-is-a-tour.md`. Do not open a body with `Until now` or
 `Let `. Do not park the bug in `although` or in the last sentence.
 
-Name every key the change touches, not only the one that headlines. Use the
-changelog's noun for the thing (`truncated messages`, not `bodies`). A key
-that did nothing before is `Add support for …`; a key whose behavior changed
-is `ensure …`. Two changes in one PR are joined with a semicolon, each with
-its own verb.
+Name a key when the change is what that key does, and name every such key,
+not only the one that headlines. A key that did nothing before is `Add
+support for …`; a key whose behavior changed is `ensure …`. A row that
+starts using an expand those keys already perform gets no key list in the
+title, the body, or the changelog. Use the changelog's noun for the thing
+(`truncated messages`, not `bodies`). Two changes in one PR are joined
+with a semicolon, each with its own verb.
 
 ## Body order
 
@@ -50,7 +52,9 @@ its own verb.
 
 Do not open with a symbol name, a file, or a function. If the status bar, a
 key, or a mode flag is required to understand the bug, explain it on first
-use: `summary mode (press t until the status bar reads tools·sum)`.
+use by naming what it is: `summary mode (tools·sum in the status bar)`. Do
+not tell the reader how to reach it (`press t until …`); the PR describes
+the change, not how to operate the program.
 
 ## Old vs new
 
@@ -68,6 +72,9 @@ fix.
 
 - "The mechanism *is* the interesting part." It can be interesting in section
   3. It is not the title and not the first sentence.
+- "The row could not expand before, so list `→`, `←`, `Enter`, and a click."
+  Those keys already expand the other rows. The bug is that this row showed
+  whole.
 - "The audience is other engineers, so symbols are fine." Engineers still need
   the symptom first. Symbols come after, defined on first use.
 - "This is a refactor with no user-visible change." The PR title still names

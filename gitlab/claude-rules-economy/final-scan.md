@@ -60,7 +60,8 @@ touched comments for every other phrasing. Replace those hits.
 
 For each sentence in docs and comments: what does the reader do differently
 for having read it? If they would learn it by doing the thing, or by reading
-the next line of code, delete it.
+the next line of code, delete it. Same for a key list on an existing expand,
+and for a tail that only matches behavior the product already had.
 
 ## 6. Closed-excuse check
 

@@ -87,6 +87,32 @@ class RewriteProseTests(unittest.TestCase):
         source = "changelog's noun for the thing (`truncated messages`, not `bodies`)."
         self.assertEqual(ggr.rewrite_prose(source), source)
 
+    def test_mixed_host_lists_collapse_to_one_mr_mention(self) -> None:
+        self.assertEqual(
+            ggr.rewrite_prose(
+                "PR titles and bodies, MR titles and descriptions, changelog"
+            ),
+            "MR titles and descriptions, changelog",
+        )
+        self.assertEqual(
+            ggr.rewrite_prose(
+                'parent bullets, PR "The bug" / MR description sentences'
+            ),
+            "parent bullets, MR description sentences",
+        )
+
+    def test_open_a_body_and_key_list_body_become_description(self) -> None:
+        self.assertEqual(
+            ggr.rewrite_prose("Do not open a body with `Until now`"),
+            "Do not open a description with `Until now`",
+        )
+        self.assertEqual(
+            ggr.rewrite_prose(
+                "no key list in the title, the body, or the changelog"
+            ),
+            "no key list in the title, the description, or the changelog",
+        )
+
     def test_body_order_and_opens(self) -> None:
         self.assertEqual(ggr.rewrite_prose("## Body order"), "## Description order")
         self.assertEqual(ggr.rewrite_prose("Body order:"), "Description order:")

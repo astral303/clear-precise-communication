@@ -24,6 +24,14 @@ OUTPUT_DIRNAME = "gitlab"
 # Longer phrases first. Workflow rewrites must run before generic PR → MR.
 PHRASE_REPLACEMENTS: tuple[tuple[str, str], ...] = (
     (
+        "PR titles and bodies, MR titles and descriptions",
+        "MR titles and descriptions",
+    ),
+    (
+        'PR "The bug" / MR description',
+        "MR description",
+    ),
+    (
         "GitHub already links stacked PRs",
         "GitLab already links related merge requests",
     ),
@@ -76,6 +84,11 @@ PHRASE_REPLACEMENTS: tuple[tuple[str, str], ...] = (
     ("Body order:", "Description order:"),
     ("The body opens", "The description opens"),
     ("the body opens", "the description opens"),
+    ("Do not open a body", "Do not open a description"),
+    (
+        "in the title, the body, or the changelog",
+        "in the title, the description, or the changelog",
+    ),
 )
 
 # Allow a glossary phrase to break across a wrap, but not a paragraph.

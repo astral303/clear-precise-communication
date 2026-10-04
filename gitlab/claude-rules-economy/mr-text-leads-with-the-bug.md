@@ -8,9 +8,11 @@ Commit subjects do not follow this order. They follow the
 defect that required it. An MR title can name the bug while the commit names
 the behavior that moved, not `Refactor the lookup`.
 
-Name every key the change touches. Use the changelog's noun. A key that did
-nothing before is `Add support for …`; a changed key is `ensure …`. Two
-changes join with a semicolon, each with its own verb.
+Name a key when the change is what that key does, and name every such key.
+A key that did nothing before is `Add support for …`; a changed key is
+`ensure …`. A row that starts using an expand those keys already perform
+gets no key list. Use the changelog's noun. Two changes join with a
+semicolon, each with its own verb.
 
 | Do not write (mechanism) | Write (user-visible effect) |
 | --- | --- |
@@ -28,8 +30,10 @@ Description order:
 3. Cause, then fix, under noun-phrase headings.
 4. Validation: two to four lines of coverage groups. No test names.
 
-Do not open with a symbol, file, or function. Explain status-bar jargon on
-first use. Every old-vs-new contrast uses `now` or `no longer`.
+Do not open with a symbol, file, or function. Name a status-bar mode on
+first use (`summary mode (tools·sum in the status bar)`). Do not add the
+keystroke that reaches it. Every old-vs-new contrast uses `now` or
+`no longer`.
 
 A refactor with no user-visible change still titles the invariant that moved,
 not a file list. Mechanism can be interesting in section 3; it is not the

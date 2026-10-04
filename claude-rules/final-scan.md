@@ -71,7 +71,9 @@ both are accurate.
 
 For each sentence in user docs and comments: what does the reader do
 differently for having read it? If they would learn it by doing the thing, or
-by reading the next line of code, delete it.
+by reading the next line of code, delete it. Delete a key list on a row that
+uses the expand those keys already perform. Delete a tail that only says the
+new behavior matches behavior the product already had.
 
 ## 6. Closed-excuse check
 

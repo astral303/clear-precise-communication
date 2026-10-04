@@ -1,6 +1,6 @@
 # No premise-so-consequence
 
-A comment (or a changelog/PR sentence that states behavior) is an
+A comment (or a changelog/MR sentence that states behavior) is an
 **instruction**: when to act, in the imperative, in execution order. It is
 not a proof. Do not open with a general truth about the system and *so*
 the behavior.
@@ -20,7 +20,7 @@ is the mental gymnastics — not mere parse cost.
 ## Scope
 
 `///` and `//` comments first. The same shape is banned in changelog
-parent bullets, PR "The bug" / MR description sentences, and commit bodies
+parent bullets, MR description sentences, and commit bodies
 that explain a branch. Reasons, if they must appear, go after the rule as
 a subordinate clause — not as the premise.
 

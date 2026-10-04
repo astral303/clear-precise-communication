@@ -9,7 +9,7 @@ the same shape.
 
 ## Scope
 
-PR titles and bodies, MR titles and descriptions, changelog parent bullets,
+MR titles and descriptions, changelog parent bullets,
 commit bodies that state a defect, and the first paragraph of "The bug" /
 "The change". See `mr-text-leads-with-the-bug.md`.
 

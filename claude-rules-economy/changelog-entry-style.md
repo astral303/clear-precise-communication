@@ -19,9 +19,12 @@ Fixes lead with the verb and the symptom, not the end state:
 | `I` copies the session ID to the clipboard | Fix `I` copying the actual session ID |
 
 When keys share one behavior, one parent line names them all. Own bullets
-only when a key's behavior differs. User-visible symptom in the parent;
-mechanism as a sub-bullet only if the reader must act on it. A sub-bullet
-must add a fact the parent cannot carry, or it is cut.
+only when a key's behavior differs. Name a key only when the change is what
+that key does. A row that expands through keys that already expand other
+rows gets no key list. User-visible symptom in the parent; mechanism as a
+sub-bullet only if the reader must act on it. A sub-bullet must add a fact
+the parent cannot carry, or it is cut. Do not add that the new behavior
+matches behavior the product already had.
 
 A small, one-condition fix is one or two lines stating what the user now
 sees. If the user would have expected the thing already, it is a Fix:
