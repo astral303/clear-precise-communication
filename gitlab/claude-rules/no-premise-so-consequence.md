@@ -62,6 +62,9 @@ These are the prestige-register tells, not a poetry ban:
   `because` after the rule.
 - "Comments should explain why." Why is a subordinate clause on the rule,
   not a premise that earns the rule. See `comments-earn-their-place.md`.
+- "The comment has to be an imperative, so I wrote the next function's step
+  here." The imperative is what this code does. A step another function
+  performs stays on that function.
 - "I was avoiding repetition of *write*." Repeat the verb. Variety produced
   `needs no write`.
 

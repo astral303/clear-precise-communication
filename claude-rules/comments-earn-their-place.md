@@ -42,7 +42,8 @@ Explain *why*, not line-by-line *what*.
 Each comment should identify the non-obvious decision, give the behavior or
 invariant it preserves, state any condition limiting the claim, stay local to
 the anchored code in 2–3 sentences, and stop short of arguing the
-implementation is unquestionably correct.
+implementation is unquestionably correct. An imperative is local only when
+this code performs it.
 
 ## Banned comment content
 

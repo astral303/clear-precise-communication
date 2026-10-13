@@ -15,6 +15,7 @@ A self-describing name beats a documented constant
 Keep only what the code cannot say: why this branch and not the obvious one, a
 consequence of "simplifying", a limit the reader would assume away. Explain
 *why*, not line-by-line *what*. Two or three sentences, local, no advocacy.
+An imperative is local only when this code performs it.
 
 Cut: restatement of the signature, of the next line, of the test's name;
 `What X does` / `Where X lives`; idioms; verdicts (`this is safe`); narration

@@ -38,7 +38,8 @@ sentence of a setup chain, rewrite. See `setup-then-point-is-a-tour.md`.
 
 ## 3. Search the text
 
-Search the artifact (and the diff, for comments and test names) for:
+Search the artifact, and search the diff for comments and test names,
+including comments this pass did not change:
 
 | Pattern | Action |
 | --- | --- |

@@ -11,7 +11,9 @@ act. Do not assign them the proof.
 | A restored entry equals the one on disk, so its shard needs no write. | If the restored session matches disk, skip the write. |
 
 If you derive the behavior from how the system *is*, delete the premise
-and state the behavior. Reasons go after, as `because`, if at all.
+and state the behavior. Reasons go after, as `because`, if at all. The
+imperative is what this code does. A step another function performs stays
+on that function.
 
 Banned: `X, so Y` where X is ontology; `needs no ___`; `anew`; `alone
 suffices`; two sentences that mirror each other. `so` after a real
