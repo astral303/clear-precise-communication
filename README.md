@@ -65,7 +65,7 @@ reports what is missing.
 | Agent | Always-on | Skill |
 | --- | --- | --- |
 | Codex, Grok | `AGENTS.d/` plus an `AGENTS.md` pointer | `~/.<agent>/skills/write-commit-messages` |
-| Claude Code | `~/.claude/rules/clear-precise-writing` → `claude-rules/` | `~/.claude/skills/write-commit-messages` |
+| Claude Code | `~/.claude/rules/clear-precise-writing`, a copy of `claude-rules/` on Windows | `~/.claude/skills/write-commit-messages` |
 
 Codex and Grok also get
 [`rules/clean-code-principles.md`](./rules/clean-code-principles.md) unless
@@ -107,9 +107,11 @@ tradeoff that required it.
 ## Customize
 
 Edit [`rules/clear-precise-communication.md`](./rules/clear-precise-communication.md).
-If the install is a symlink, `git pull` is enough. If it is a copy, copy the
-body into `claude-rules/clear-precise-communication.md` and keep the
-always-on preamble. Start a new session so the revised text enters context.
+Copy that body into `claude-rules/clear-precise-communication.md` and keep
+the always-on preamble. On macOS and Linux the install is a symlink, and
+`git pull` is enough. On Windows a directory install is a copy: a junction
+is invisible to Claude's file search. Re-run the installer after a pull.
+Start a new session so the revised text enters context.
 
 ## Attribution
 

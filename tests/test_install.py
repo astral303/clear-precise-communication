@@ -11,6 +11,20 @@ sys.path.insert(0, str(REPO / "install"))
 import install as inst  # noqa: E402
 
 
+def assert_linked(dest: Path, source: Path) -> None:
+    if inst.use_symlinks():
+        assert dest.is_symlink(), dest
+        assert dest.resolve() == source.resolve()
+        return
+    assert dest.exists(), dest
+    assert not dest.is_junction()
+    assert not dest.is_symlink()
+    if source.is_dir():
+        assert inst._files_match(dest, source)
+    else:
+        assert dest.read_bytes() == source.read_bytes()
+
+
 def run(args: list[str], home: Path) -> tuple[int, str]:
     stdout = io.StringIO()
     code = inst.main([*args, "--home", str(home)], stdin=io.StringIO(), stdout=stdout, isatty=False)
@@ -94,30 +108,17 @@ class InstallTests(unittest.TestCase):
                 agents_d = home / f".{agent}" / "AGENTS.d"
                 comm = agents_d / "clear-precise-communication.md"
                 code_file = agents_d / "clean-code-principles.md"
-                self.assertTrue(comm.is_symlink(), comm)
-                self.assertEqual(
-                    comm.resolve(),
-                    (REPO / "rules" / "clear-precise-communication.md").resolve(),
-                )
-                self.assertTrue(code_file.is_symlink())
-                self.assertEqual(
-                    code_file.resolve(),
-                    (REPO / "rules" / "clean-code-principles.md").resolve(),
-                )
+                assert_linked(comm, REPO / "rules" / "clear-precise-communication.md")
+                assert_linked(code_file, REPO / "rules" / "clean-code-principles.md")
                 agents_md = (home / f".{agent}" / "AGENTS.md").read_text(encoding="utf-8")
                 self.assertIn("clear-precise-communication.md", agents_md)
                 self.assertIn("clean-code-principles.md", agents_md)
                 skill = home / f".{agent}" / "skills" / "write-commit-messages"
-                self.assertTrue(skill.is_symlink())
-                self.assertEqual(
-                    skill.resolve(),
-                    (REPO / "skills" / "write-commit-messages").resolve(),
-                )
+                assert_linked(skill, REPO / "skills" / "write-commit-messages")
             writing = home / ".claude" / "rules" / "clear-precise-writing"
-            self.assertTrue(writing.is_symlink())
-            self.assertEqual(writing.resolve(), (REPO / "claude-rules").resolve())
+            assert_linked(writing, REPO / "claude-rules")
             claude_skill = home / ".claude" / "skills" / "write-commit-messages"
-            self.assertTrue(claude_skill.is_symlink())
+            assert_linked(claude_skill, REPO / "skills" / "write-commit-messages")
 
     def test_second_install_is_noop(self) -> None:
         with tempfile.TemporaryDirectory() as raw:
@@ -158,11 +159,7 @@ class InstallTests(unittest.TestCase):
                 out,
             )
             self.assertIn("\nChanges applied, install complete.", out)
-            self.assertTrue(dest.is_symlink())
-            self.assertEqual(
-                dest.resolve(),
-                (REPO / "rules" / "clear-precise-communication.md").resolve(),
-            )
+            assert_linked(dest, REPO / "rules" / "clear-precise-communication.md")
             backup_line = next(
                 line for line in out.splitlines() if line.startswith("Backed up ")
             )
@@ -186,10 +183,7 @@ class InstallTests(unittest.TestCase):
             )
             self.assertEqual(code, 0, out)
             writing = home / ".claude" / "rules" / "clear-precise-writing"
-            self.assertEqual(
-                writing.resolve(),
-                (REPO / "gitlab" / "claude-rules-economy").resolve(),
-            )
+            assert_linked(writing, REPO / "gitlab" / "claude-rules-economy")
 
     def test_old_skill_warns_but_doctor_still_passes(self) -> None:
         with tempfile.TemporaryDirectory() as raw:
@@ -200,6 +194,100 @@ class InstallTests(unittest.TestCase):
             code, out = run(["--doctor", "--agents", "codex"], home)
             self.assertEqual(code, 0, out)
             self.assertIn("leftover always-on skill", out)
+
+
+class WindowsCopyTests(unittest.TestCase):
+    def setUp(self) -> None:
+        if inst.use_symlinks():
+            self.skipTest("directory copies replace junctions on Windows")
+
+    def test_replacing_a_junction_leaves_the_source_in_place(self) -> None:
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            source = root / "source"
+            source.mkdir()
+            (source / "rule.md").write_text("rule\n", encoding="utf-8")
+            junction = root / "linked"
+            completed = subprocess.run(
+                ["cmd", "/c", "mklink", "/J", str(junction), str(source)],
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(completed.returncode, 0, completed.stderr)
+            self.assertTrue(junction.is_junction())
+            inst._mirror_tree(junction, source)
+            self.assertFalse(junction.is_junction())
+            self.assertEqual((source / "rule.md").read_text(encoding="utf-8"), "rule\n")
+            self.assertEqual((junction / "rule.md").read_text(encoding="utf-8"), "rule\n")
+
+    def test_mirror_updates_and_deletes(self) -> None:
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            source = root / "source"
+            dest = root / "dest"
+            source.mkdir()
+            (source / "keep.md").write_text("new\n", encoding="utf-8")
+            dest.mkdir()
+            (dest / "keep.md").write_text("old\n", encoding="utf-8")
+            (dest / "gone.md").write_text("gone\n", encoding="utf-8")
+            inst._mirror_tree(dest, source)
+            self.assertEqual((dest / "keep.md").read_text(encoding="utf-8"), "new\n")
+            self.assertFalse((dest / "gone.md").exists())
+
+    def test_two_junctions_back_up_to_different_paths(self) -> None:
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            home = root / "home"
+            source = root / "source"
+            source.mkdir()
+            (source / "rule.md").write_text("rule\n", encoding="utf-8")
+            home.mkdir()
+            first = home / "a"
+            second = home / "b"
+            for dest in (first, second):
+                completed = subprocess.run(
+                    ["cmd", "/c", "mklink", "/J", str(dest), str(source)],
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                )
+                self.assertEqual(completed.returncode, 0, completed.stderr)
+            backup_root = root / "backup"
+            saved = [
+                inst.backup_path(dest, backup_root, home) for dest in (first, second)
+            ]
+            self.assertNotEqual(saved[0], saved[1])
+            self.assertEqual((source / "rule.md").read_text(encoding="utf-8"), "rule\n")
+
+    def test_doctor_rejects_a_junction(self) -> None:
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as raw:
+            home = Path(raw)
+            (home / ".claude").mkdir()
+            run(["--yes", "--agents", "claude"], home)
+            writing = home / ".claude" / "rules" / "clear-precise-writing"
+            inst._remove_dest(writing)
+            source = REPO / "claude-rules"
+            completed = subprocess.run(
+                ["cmd", "/c", "mklink", "/J", str(writing), str(source)],
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(completed.returncode, 0, completed.stderr)
+            code, out = run(["--doctor", "--agents", "claude"], home)
+            self.assertEqual(code, 1, out)
+            self.assertIn("is a junction", out)
+            code, out = run(["--yes", "--agents", "claude"], home)
+            self.assertEqual(code, 0, out)
+            self.assertFalse(writing.is_junction())
+            self.assertTrue((source / "final-scan.md").is_file())
 
 
 if __name__ == "__main__":

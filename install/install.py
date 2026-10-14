@@ -205,46 +205,65 @@ def mkdir_op(dest: Path, home: Path) -> Operation | None:
     )
 
 
+def _is_link(path: Path) -> bool:
+    return path.is_symlink() or path.is_junction()
+
+
 def _remove_dest(dest: Path) -> None:
-    if dest.is_symlink() or dest.is_file():
+    # A junction is a directory. rmtree follows it and deletes the source.
+    if dest.is_junction() or (dest.is_dir() and dest.is_symlink()):
+        os.rmdir(dest)
+    elif dest.is_symlink() or dest.is_file():
         dest.unlink()
     elif dest.is_dir():
         shutil.rmtree(dest)
 
 
-def _windows_junction(dest: Path, source: Path) -> None:
-    completed = subprocess.run(
-        ["cmd", "/c", "mklink", "/J", str(dest), str(source)],
-        check=False,
-        capture_output=True,
-        text=True,
-    )
-    if completed.returncode != 0:
-        shutil.copytree(source, dest)
+def _mirror_tree(dest: Path, source: Path) -> None:
+    """Copy source onto dest. Real files, so a search that skips junctions sees them."""
+    if _is_link(dest):
+        _remove_dest(dest)
+    dest.mkdir(parents=True, exist_ok=True)
+    wanted = {path.relative_to(source) for path in source.rglob("*") if path.is_file()}
+    for rel in wanted:
+        target = dest / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        src = source / rel
+        if not target.is_file() or target.read_bytes() != src.read_bytes():
+            shutil.copy2(src, target)
+    for path in sorted(dest.rglob("*"), key=lambda item: len(item.parts), reverse=True):
+        rel = path.relative_to(dest)
+        if path.is_file() and rel not in wanted:
+            path.unlink()
+        elif path.is_dir() and not (source / rel).is_dir():
+            path.rmdir()
 
 
 def link_or_copy_op(dest: Path, source: Path, home: Path) -> Operation | None:
-    if points_at(dest, source) and (dest.is_symlink() or not use_symlinks()):
+    acceptable = dest.is_symlink() if use_symlinks() else dest.exists() and not _is_link(dest)
+    if points_at(dest, source) and acceptable:
         return None
     label = display_path(dest, home)
     backup_src = dest if dest.exists() or dest.is_symlink() else None
     if use_symlinks():
         old, new = "", f"symlink → {source}\n"
     elif source.is_dir():
-        old, new = "", f"junction or copy → {source}\n"
+        old, new = "", f"copy → {source}\n"
     else:
         old = dest.read_text(encoding="utf-8") if dest.is_file() and not dest.is_symlink() else ""
         new = source.read_text(encoding="utf-8")
 
     def apply() -> None:
         dest.parent.mkdir(parents=True, exist_ok=True)
-        if dest.exists() or dest.is_symlink():
-            _remove_dest(dest)
         if use_symlinks():
+            if dest.exists() or dest.is_symlink():
+                _remove_dest(dest)
             dest.symlink_to(source, target_is_directory=source.is_dir())
         elif source.is_dir():
-            _windows_junction(dest, source)
+            _mirror_tree(dest, source)
         else:
+            if dest.exists() or dest.is_symlink():
+                _remove_dest(dest)
             shutil.copy2(source, dest)
 
     return Operation(
@@ -460,8 +479,10 @@ def plan_all(
 
 
 def backup_path(path: Path, backup_root: Path, home: Path) -> Path:
+    # absolute(), not resolve(): a junction's resolve() is the source tree,
+    # so two installs of one skill would back up onto the same path.
     try:
-        rel = path.resolve().relative_to(home.resolve())
+        rel = path.absolute().relative_to(home.resolve())
     except ValueError:
         rel = Path(path.name)
     target = backup_root / rel
@@ -491,6 +512,11 @@ def apply_operations(ops: Sequence[Operation], home: Path, stdout) -> Path | Non
 
 def doctor_link(dest: Path, source: Path, home: Path) -> str | None:
     label = display_path(dest, home)
+    if not use_symlinks() and _is_link(dest):
+        return (
+            f"FAIL {label} is a junction. File search does not list the files "
+            "through it. Re-run the installer"
+        )
     if dest.is_symlink():
         try:
             if dest.resolve() == source.resolve():
