@@ -1,7 +1,8 @@
 # Name it from what the user saw
 
-Do not define a thing by who failed to possess it. Define it by what the
-user saw.
+Do not define a thing by who failed to possess it, and do not make the
+absence the object of the verb. Define it by what the user saw. *Showing
+no time* is *did not show the time*.
 
 "A session ID that no agent stores" makes the store the subject of the miss.
 The user pasted an ID and saw `not found`. That is the name of the thing.
@@ -27,13 +28,15 @@ the term. See `one-term-per-concept.md` and `write-from-the-reader.md`.
 | no disk stored the file | file not found |
 | a document that stored no match | no match |
 | a row no renderer emitted | a missing row |
+| output showing no time | output that did not show the time |
 
 English already has the lookup-first shape: *file not found*, *page not
 found*, *no match*. The store does not get a speaking part.
 
-The tell is a relative clause or *when*-clause whose verb is possession by
-an internal actor: *that no X stores/holds/contains/emits/returns*, *when
-no X stored it*. Rewrite from the person looking.
+The tell is one construction: a verb whose object is the absence. *Showed
+no time*, *stored no match*, and *showing no time* are that construction.
+Negate the verb, or name what is missing. The verbs named below are
+examples, not the whole of it.
 
 ## Closed loopholes
 
@@ -49,11 +52,15 @@ no X stored it*. Rewrite from the person looking.
 - "This is a commit, so internals are fine." The commit still names what
   the user saw, then the defect. See `write-commit-messages`.
 - "`stores` is a literal verb." Literal for *delete* and *count*. For a
-  miss, the verb is *found* / *shows*. See `literal-verbs-not-idioms.md`.
+  miss, negate the verb or name what is missing. *shows* does not license
+  *shows no*. See `literal-verbs-not-idioms.md`.
+- "The scan list does not name this verb, so *showing no* is allowed." The
+  list is examples. Any verb with *no* as its object is the same
+  construction.
 
 ## Final scan
 
-Search for `that no `, `when no `, `stores`, `stored it`, `holds no`,
-`contains no`, `did not emit`, `did not return` used to name an absence.
-Each hit becomes what the user saw (*not found*, *missing*, *unknown*),
-unless the sentence is actually about a store's capacity.
+Search for a verb whose object is the absence: *showed no time*, *stored
+no match*, *holds no*, *contains no*, *did not emit*. Those phrases are
+examples. Each hit becomes what the user saw (*did not show*, *not found*,
+*missing*), unless the sentence is actually about a store's capacity.
