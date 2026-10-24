@@ -20,9 +20,9 @@ is the mental gymnastics — not mere parse cost.
 ## Scope
 
 `///` and `//` comments first. The same shape is banned in changelog
-parent bullets, PR "The bug" / MR description sentences, and commit bodies
-that explain a branch. Reasons, if they must appear, go after the rule as
-a subordinate clause — not as the premise.
+parent bullets, the opening of a PR body, and commit bodies that explain
+a branch. Reasons, if they must appear, go after the rule as a subordinate
+clause — not as the premise.
 
 ## Required shape
 

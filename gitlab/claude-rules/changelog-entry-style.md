@@ -61,7 +61,8 @@ what now shows. It is not an Enhancement, and the symptom is not a trailing
 "Until now they were not read."
 
 Decide fix-or-enhancement from the user's expectation, not from the plan's
-heading. The MR title and "The bug" section use the same first sentence.
+heading. The MR title and the opening of the description use the same first
+sentence.
 
 ## One bullet per distinct behavior
 

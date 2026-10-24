@@ -10,13 +10,12 @@ UI already says on screen.
 
 ## Scope
 
-Every durable artifact, and **code comments and doc comments exactly as much as
-READMEs**. Reading this as "user-facing docs only" is the mistake that let it
-be ignored three times. The set is the list in `always-on-scope.md`.
+Every durable artifact in `always-on-scope.md`, and **code comments and doc
+comments exactly as much as READMEs**. Reading this as "user-facing docs only"
+is the mistake that let it be ignored three times.
 
-Examples, not a boundary: READMEs, user docs, changelogs, pull request text,
-commit text, `///` comments, `//` comments, module docs, error-string
-comments, and any prose that explains behavior.
+The examples in that list are not a boundary. A missing entry is not an
+exclusion.
 
 ## Usefulness test
 
@@ -71,14 +70,8 @@ the action — not today's only instance of it.
 
 ## Comments
 
-In a comment, keep only what the code cannot say:
-
-- why this branch and not the obvious one
-- a consequence someone would break by "simplifying"
-- a limit the reader would otherwise assume away
-
-Cut restatements of the signature, of the method call on the next line, and of
-a test's own name. See `comments-earn-their-place.md`.
+A comment keeps only what the code cannot say. See
+`comments-earn-their-place.md`.
 
 ## Closed loopholes
 

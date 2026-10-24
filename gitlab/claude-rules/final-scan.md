@@ -13,7 +13,8 @@ Title, headings, and the first sentence of each section.
 
 - They name the user-visible problem or effect, the after-state, and the next
   action when one is needed.
-- Headings are noun phrases: `Changes`, `Rationale for X`, `Validation`.
+- Headings are noun phrases. A repository template's headings stay as
+  written. Otherwise `Changes`, `Rationale for X`.
 - Not questions. Not `What` / `Where` / `Why` / `Whether` / `How` / `Which`
   openers.
 - Sentences start with the noun, then the verb. Not `One that…` / `One the…`
@@ -54,7 +55,7 @@ including comments this pass did not change:
 | raw seconds, unreproducible counts, "it works as expected" | Ratio, percentage, or cut |
 | `still` / `unchanged` claiming existing behavior is preserved | Cut. A changelog is not a still-works log. |
 | `One that`, `One the`, `one whose`, `, for which ` | Noun first, then verb |
-| `you` / `your` in a title, commit, MR description, or comment | `the user`, unless it quotes a product string |
+| `you` / `your` in a title, commit, MR description, changelog, release note, issue, or comment | `the user`, unless it quotes a product string |
 | a verb whose object is the absence (*showed no time*, *stored no match*) | negate the verb, or name what is missing; see `name-it-from-what-the-user-saw.md` |
 | `anew`, `needs no`, `suffices`; `so` after a general truth about the system | State the rule; see `no-premise-so-consequence.md` |
 | `Let `, `Until now`, `instead of`, `although ` burying the bug | Point first; see `setup-then-point-is-a-tour.md` |

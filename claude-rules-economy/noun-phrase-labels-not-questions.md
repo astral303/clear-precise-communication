@@ -8,7 +8,7 @@ doc comments, and sentences. ASD-STE100: plain declarative labels.
 | --- | --- |
 | Rationale for leaving clippy warnings ignored | Why this does not also deny clippy warnings |
 | Changes | What changed |
-| Validation | How we tested this |
+| Retry budget | How retries are decided |
 | The agent's share of `message_count` | What the workspace filter narrows the list to |
 | True when the handle is missing | Whether the handle is present |
 | `None` when no filter is set | Where the filter lives |

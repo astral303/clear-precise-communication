@@ -1,45 +1,44 @@
-# Second person only in product text
+# Second person only when addressing the operator
 
-A changelog or a UI string speaks to the person using the software: "a shell
-command **you** ran". A title, commit or MR description is a record an engineer
-reads about a change, and it describes a third party: "a shell command **the
-user** ran".
+`you` addresses the person operating the product. A record of a change
+describes that person as `the user`. Changelogs and release notes are
+records.
 
-## Scope
+## Where each person goes
 
 | Person | Artifacts |
 | --- | --- |
-| Second (`you`, `your`) | Changelogs, release notes, README and user docs, UI copy, error and warning strings |
-| Third (`the user`) | MR titles and descriptions, commit subjects and bodies, issues, ADRs, plans, design docs, reviewer guides, `///` and `//` comments, test names |
+| Second (`you`, `your`) | README and other user docs, UI copy, error and warning strings |
+| Third (`the user`) | Changelogs, release notes, MR titles and descriptions, commit subjects and bodies, issues, ADRs, plans, design docs, reviewer guides, `///` and `//` comments, test names |
 
-The same change, in both registers:
+The same change:
 
 | Artifact | Write |
 | --- | --- |
-| Changelog | Fix a shell command you ran in Pi missing altogether in the default tools summary mode |
-| MR title | Attribute a shell command user ran in Pi to the user, not to the model |
-| Commit body | Exports render the user's call, as they already render the model's |
+| Changelog | Fix a shell command the user ran in Pi missing from the default tools summary |
+| README | The installer asks you to confirm before it writes |
+| MR title | Attribute a shell command the user ran in Pi to the user, not to the model |
 
 ## The label is not the register
 
-`You` is a string the product prints. Quoting it in a commit or an MR description
-quotes the product; it does not address the reader. "opens a run under `You`"
-is correct in a commit, and stays in backticks.
+`You` is a string the product prints. Quoting it in a commit, a changelog,
+or an MR description quotes the product; it does not address the reader. "opens a
+run under `You`" stays in backticks.
 
 ## Closed loopholes
 
-- "The changelog and the MR describe one change, so they should read alike."
-  Same facts, different readers. One ran the command; the other is reviewing
-  the code that records it.
-- "The title should match the changelog entry." It matches its facts, not its
-  person.
-- "Second person is warmer." A commit is a record. Nobody is being addressed.
+- "The changelog speaks to the person who upgrades." They are reading a
+  record. Write `the user`.
+- "The title should match the changelog's wording." It matches the facts.
+  Both use `the user`. A README step that addresses the operator uses `you`.
+- "Second person is warmer." A commit, a merge request, and a changelog are
+  records. Nobody is being addressed.
 - "I wrote the body to match my title." Then the title was wrong, or the body
   is. Fix the one that left its register.
 
 ## Final scan
 
-Search the artifact for `you`, `your`. In a title, commit, MR description, issue or
-comment, each hit is either a quoted product string — keep it — or the wrong
-person, so rewrite it as `the user`. In a changelog or user doc, run it the
-other way: `the user` becomes `you`.
+Search for `you` and `your`. In a changelog, release note, title, commit,
+MR description, issue, or comment, each hit is either a quoted product string or
+the wrong person. Rewrite the wrong person as `the user`. In a README or
+other user doc, a sentence that addresses the reader uses `you`.

@@ -14,10 +14,9 @@ appeared**.
 
 ## Scope
 
-Every durable artifact: changelog entries, PR titles and bodies, commit
-messages, user docs, issues, comments, and UI copy. If the screen already
-has a word for the miss (`not found`, `ignored`, a missing row), that is
-the term. See `one-term-per-concept.md` and `write-from-the-reader.md`.
+Every durable artifact in `always-on-scope.md`. If the screen already has a
+word for the miss (`not found`, `ignored`, a missing row), that is the term.
+See `one-term-per-concept.md` and `write-from-the-reader.md`.
 
 ## Required shape
 

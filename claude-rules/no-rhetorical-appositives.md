@@ -11,9 +11,7 @@ pause, enumerate, resume.
 
 ## Scope
 
-Every durable artifact: changelog entries, PR titles and bodies, commit
-messages, issues, user docs, `///` and `//` comments, and any sentence that
-states a change.
+Every durable artifact in `always-on-scope.md`.
 
 ## Why it fails a changelog
 

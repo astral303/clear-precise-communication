@@ -12,9 +12,8 @@ inside the relative verbs.
 
 ## Scope
 
-Every durable artifact: `///` and `//` comments, user docs, changelogs, PR
-bodies, commit messages, issues, and chat that states a fact. This is not a
-comment-only rule.
+Every durable artifact in `always-on-scope.md`, and chat that states a fact.
+This is not a comment-only rule.
 
 ## Required shape
 

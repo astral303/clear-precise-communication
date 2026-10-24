@@ -65,7 +65,7 @@ force whether or not anyone invoked a skill.
 - `comments-earn-their-place.md` — structure or a test first
 - `no-premise-so-consequence.md` — no `X, so Y` from a general truth; instruction in execution order
 - `shortest-phrase-that-keeps-the-fact.md` — shorter form unless a fact was lost
-- `second-person-only-in-product-text.md` — `you` in product text, `the user` in records
+- `second-person-only-in-product-text.md` — `you` in user docs and UI; `the user` in records, including changelogs
 - `subject-first-sentences.md` — noun then verb; no parked relative (`One that`, `one whose`, `, for which `)
 - `name-the-type-not-a-nickname.md` — identifier plus one clause of meaning
 - `relay-findings-in-reader-terms.md` — relay opens with what the user sees

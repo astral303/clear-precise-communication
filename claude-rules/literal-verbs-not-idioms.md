@@ -8,12 +8,9 @@ or "says how many" into "reports the count".
 
 ## Scope
 
-Changelogs, user docs, `///` and `//` comments, test names, assertion
-messages, panic and error strings, PR bodies, commit messages, and any other
-durable text.
-
-This is not a changelog-only rule. If the idiom reached a comment or a test
-name, the rule was already ignored.
+Every durable artifact in `always-on-scope.md`. This is not a changelog-only
+rule. If the idiom reached a comment or a test name, the rule was already
+ignored.
 
 ## Required shape
 

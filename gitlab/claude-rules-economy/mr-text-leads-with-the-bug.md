@@ -23,12 +23,11 @@ If a reader who never opened the diff cannot tell what improved, the title is
 wrong. Setup → `instead of` the bug is a tour; see
 `setup-then-point-is-a-tour.md`. No `Until now` or `Let ` as the opening.
 
-Description order:
-
-1. **The bug** (or **The change**): user-visible problem or effect.
-2. **After this change**: what they see now.
-3. Cause, then fix, under noun-phrase headings.
-4. Validation: two to four lines of coverage groups. No test names.
+Follow the repository's merge request template when it has one. Keep its
+headings. Do not rename them. The description still carries, in order: the
+user-visible problem or effect, what the user sees now, the cause and the
+fix, and what was tested (two to four lines of coverage groups, no test
+names). When there is no template, use noun-phrase headings for those facts.
 
 Do not open with a symbol, file, or function. Name a status-bar mode on
 first use (`summary mode (tools·sum in the status bar)`). Do not add the
@@ -36,5 +35,4 @@ keystroke that reaches it. Every old-vs-new contrast uses `now` or
 `no longer`.
 
 A refactor with no user-visible change still titles the invariant that moved,
-not a file list. Mechanism can be interesting in section 3; it is not the
-title.
+not a file list. Mechanism comes after the effect; it is not the title.

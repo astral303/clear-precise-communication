@@ -41,12 +41,21 @@ with a semicolon, each with its own verb.
 
 ## Description order
 
-1. **The bug** (or **The change**, for a feature): the user-visible problem or
-   effect, in the reader's terms.
-2. **After this change**: what they see now.
-3. Cause, then fix, under their own noun-phrase headings.
-4. Validation: two to four lines naming coverage groups. No test names, no
-   per-case lines. See `mr-text-scannable-structure.md`.
+Follow the repository's merge request template when it has one. Keep its
+headings and its section order. Do not rename them.
+
+The description still carries these facts, in this order, in whichever
+section the template uses for each:
+
+1. The user-visible problem or effect, in the reader's terms. For a feature,
+   the effect, not the refactor that enabled it.
+2. What the user sees after the change.
+3. Cause, then fix.
+4. What was tested: two to four lines naming coverage groups. No test names,
+   no per-case lines. See `mr-text-scannable-structure.md`.
+
+When the repository has no template, use noun-phrase headings for those
+facts.
 
 Do not open with a symbol name, a file, or a function. If the status bar, a
 key, or a mode flag is required to understand the bug, explain it on first
@@ -68,8 +77,8 @@ fix.
 
 ## Closed loopholes
 
-- "The mechanism *is* the interesting part." It can be interesting in section
-  3. It is not the title and not the first sentence.
+- "The mechanism *is* the interesting part." It can come after the effect.
+  It is not the title and not the first sentence.
 - "The row could not expand before, so list `→`, `←`, `Enter`, and a click."
   Those keys already expand the other rows. The bug is that this row showed
   whole.

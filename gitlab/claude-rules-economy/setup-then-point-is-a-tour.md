@@ -11,6 +11,6 @@ must not be the point.
 | … was recognized as an ID, so … although the session was there | An uppercase session ID was reported as not found even though the session exists |
 
 Banned: `Let X` as the title; `Until now`; `instead of` / `although` as
-the twist; a "The change" paragraph that is only the old world;
+the twist; an opening paragraph that is only the old world;
 personification (`the corpus outgrew`); diagnostic counts. Mechanism
 goes under Cause. See `mr-text-leads-with-the-bug.md`.

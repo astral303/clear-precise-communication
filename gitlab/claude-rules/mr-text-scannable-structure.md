@@ -46,8 +46,9 @@ two behaviors joined with "and".
 | "Copies the session ID so that the user can paste it" | "Fix `I` copying the actual session ID" |
 | A sentence that summarises the sentence before it | Delete the second sentence |
 
-Tests sections name the **groups** covered, not every case. A Validation
-section is two to four lines of coverage groups. It does not list test names,
+Tests sections name the **groups** covered, not every case. The section
+that reports what was tested, under the template's heading, is two to four
+lines of coverage groups. It does not list test names,
 fixtures, or one line per case. The same applies to a commit body's coverage
 bullet and to a subagent's report. The reader can open the diff for the
 tests.

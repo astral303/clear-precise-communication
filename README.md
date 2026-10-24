@@ -76,8 +76,8 @@ tight. Use `--gitlab` for merge-request wording under [`gitlab/`](./gitlab/).
 
 | Artifact | GitHub | GitLab |
 | --- | ---: | ---: |
-| `claude-rules/` | 30.1k | 30k |
-| `claude-rules-economy/` | 12.1k | 12.1k |
+| `claude-rules/` | 29.2k | 29.2k |
+| `claude-rules-economy/` | 12.2k | 12.2k |
 
 GitHub is pull-request wording; GitLab is merge-request wording. Counts are
 ctok 5.0 (Claude 5).
@@ -93,6 +93,29 @@ Rebuild both tables with `uv run python tools/count_claude_tokens.py --table`.
 [`claude-rules/clear-precise-communication.md`](./claude-rules/clear-precise-communication.md)
 is the one-file body plus a Claude always-on preamble. The economy ten-rule
 file is a shortened rewrite, not a copy.
+
+## Pull request headings
+
+The always-on rules follow the repository's pull request template. Summary,
+Core Decisions, and Testing Considerations stay. The description still
+carries, in order, the user-visible problem or effect, what the user sees
+now, the cause and the fix, and what was tested. What was tested is two to
+four lines of coverage groups.
+
+[`styles/pr-body-skeleton.md`](./styles/pr-body-skeleton.md) names the headings
+The bug, After this change, and Validation for a repository that has no
+template. It is not part of the install. Copy it to one of these:
+
+- `~/.claude/rules/pr-body-skeleton.md`, beside `clear-precise-writing/`
+- a repository's `.claude/rules/pr-body-skeleton.md`
+
+The installer mirrors `~/.claude/rules/clear-precise-writing/` and removes a
+file inside that directory that is not in the rule set. The skeleton has to
+sit beside that directory, or in the repository.
+
+Changelogs and release notes say `the user`, same as a pull request. `you`
+stays in a README step, UI copy, and an error string: the sentence there
+addresses the person operating the product.
 
 ## Commit messages
 

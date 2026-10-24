@@ -10,12 +10,8 @@ word the product already uses.
 
 ## Scope
 
-Every durable artifact for the change, together: MR title and description, commit
-subject and body, issue text, changelog, user docs, `///` and `//` comments,
-test names, assertion messages, and user-facing copy.
-
-This is not an "MR description only" rule. If the title, the changelog, and a doc
-comment each use a different name, the rule was already ignored.
+Every durable artifact for the change, judged together. This is not an "MR description only" rule. If the title, the changelog, and a doc comment each use a
+different name, the rule was already ignored.
 
 User-facing text uses the words on screen. Identifiers and comments that
 name the same concept use that same word. See also

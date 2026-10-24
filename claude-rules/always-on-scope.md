@@ -8,9 +8,10 @@ later scan finds a violation, fix it before the artifact leaves your hands.
 
 Companion file, also always-on: `clear-precise-communication.md` in this
 directory (the one-file rule, with an always-on preamble). These files do not
-replace it. They close the loopholes it left. If that file is not loaded, the
-ten rules below are still in force. They apply to every durable artifact in
-the list that follows. They are not a skill. Do not wait to be asked.
+replace it. They close the loopholes it left. The ten scanning rules live in
+that file. They stay in force whether or not that file loaded with this one,
+and whether or not anyone invoked a skill. They apply to every durable
+artifact in the list that follows.
 
 ## Artifacts in scope
 
@@ -33,35 +34,6 @@ comment" is not an exemption.
 
 `clear-precise-communication.md` already says it applies to every durable
 artifact. Treat that sentence as literal.
-
-## Ten scanning rules (always in force)
-
-1. **Lead with the primary value.** First sentence is the conclusion, decision,
-   change, request, outcome, or risk. Not background.
-2. **Design for scanning.** Descriptive headings. First sentence of each
-   paragraph is the point. A series of points is bullets, from the first
-   draft, not after a paragraph exists. Packed paragraphs are skipped. Grids
-   are tables. Title, headings, and opening sentences are a useful map on
-   their own.
-3. **Make starting easy and steps bounded.** One bounded action per step.
-   Commands, paths, and expected results sit next to the step that needs them.
-4. **Externalize state.** Current status, remaining work, blockers, when the
-   artifact tracks progress. No manufactured next action on a completed record
-   or a descriptive changelog.
-5. **Suppress tangents.** One thread per section. Optional material is labeled
-   optional or cut.
-6. **Give concrete time estimates** when time matters. Units, ranges,
-   assumptions. Do not invent an estimate.
-7. **Make progress and outcomes visible.** What changed, what now works — not
-   which files were touched.
-8. **Describe errors matter-of-factly.** Symptom, cause if known, impact,
-   remedy. No alarmist filler.
-9. **Control list size.** Prefer ≤5 siblings when prioritization is possible.
-   Do not split a canonical list just to meet a count.
-10. **Remove preambles, repeated recaps, and generic closers.** No "This
-    document will." No recap of the recap. No "happy to help."
-
-Full text: `clear-precise-communication.md` in this directory.
 
 ## Closed excuses
 
@@ -103,7 +75,7 @@ These have been offered and are rejected:
 - `comments-earn-their-place.md` — structure or a test first; comments only for what code cannot say.
 - `no-premise-so-consequence.md` — no `X, so Y` from a general truth; instruction in execution order.
 - `shortest-phrase-that-keeps-the-fact.md` — rewrite each phrase shorter and keep it unless a fact was lost; cut clauses that prove the check instead of stating the result.
-- `second-person-only-in-product-text.md` — `you` in changelogs and UI copy, `the user` in titles, commits, MR bodies and comments.
+- `second-person-only-in-product-text.md` — `you` in user docs and UI copy; `the user` in changelogs, titles, commits, and MR bodies.
 - `subject-first-sentences.md` — noun then verb; do not park the fact in a relative (`One that`, `one whose`, `, for which `).
 - `name-the-type-not-a-nickname.md` — first mention is the identifier plus one clause of meaning.
 - `relay-findings-in-reader-terms.md` — a relayed finding opens with what the user sees, not a function name.

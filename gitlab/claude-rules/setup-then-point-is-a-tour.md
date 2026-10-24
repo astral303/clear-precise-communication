@@ -10,8 +10,8 @@ the same shape.
 ## Scope
 
 MR titles and descriptions, changelog parent bullets,
-commit bodies that state a defect, and the first paragraph of "The bug" /
-"The change". See `mr-text-leads-with-the-bug.md`.
+commit bodies that state a defect, and the opening of the description. See
+`mr-text-leads-with-the-bug.md`.
 
 ## Required shape
 
@@ -33,7 +33,7 @@ what now happens. Mechanism goes under Cause, or out.
 | `Until now, …` | A story opening. The heading already marks the old world |
 | `… instead of Y` as the title's twist | Y is the bug. It belongs first, not in a trailing clause |
 | `… although Z` | Z is the bug, parked in a subordinate clause |
-| A "The change" paragraph that is only the old world | That paragraph is **The bug**. The change is what happens now |
+| An opening paragraph that is only the old world | That paragraph states the miss. The change is what happens now |
 | Personification (`the corpus outgrew the index`) | New sessions were not in the index |
 | A diagnostic count (`the same missing count`) | Same class as seven columns. The user saw the warning again |
 
@@ -45,9 +45,9 @@ what now happens. Mechanism goes under Cause, or out.
   grant the code permission. They hit a miss.
 - "The last sentence summarizes." If deleting everything before it leaves
   the bug, you buried the lede. Promote that sentence.
-- "Until now is how changelogs mark the old behavior." The heading **The
-  bug** already does that. See `changelog-entry-style.md` for silently
-  absent Fixes.
+- "Until now is how changelogs mark the old behavior." State the miss. The
+  old world does not need a story opening. See `changelog-entry-style.md`
+  for silently absent Fixes.
 
 ## Final scan
 

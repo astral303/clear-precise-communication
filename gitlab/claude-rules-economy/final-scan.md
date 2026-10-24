@@ -9,7 +9,8 @@ is not a reason to skip it.
 Title, headings, and the first sentence of each section name the user-visible
 problem or effect, the after-state, and the next action when one is needed.
 Headings are noun phrases (`Changes`, `Rationale for X`), not questions or
-What/Where/Why/Whether/How/Which openers. Sentences start with the noun, then
+What/Where/Why/Whether/How/Which openers. Keep a repository template's
+headings. Sentences start with the noun, then
 the verb — not `One that` / `One the` / `one whose` / `, for which `. If the
 point is in `instead of`, `although`, or the last sentence of a setup chain,
 rewrite. See `setup-then-point-is-a-tour.md`.
@@ -41,7 +42,7 @@ including comments this pass did not change:
 | raw seconds, unreproducible counts, "it works as expected" | Ratio, percentage, or cut |
 | `still` / `unchanged` claiming existing behavior is preserved | Cut |
 | `One that`, `One the`, `one whose`, `, for which ` | Noun first, then verb |
-| `you` / `your` in a title, commit, MR description, or comment | `the user`, unless it quotes a product string |
+| `you` / `your` in a title, commit, MR description, changelog, release note, issue, or comment | `the user`, unless it quotes a product string |
 | a verb whose object is the absence (*showed no time*, *stored no match*) | negate the verb, or name what is missing; see `name-it-from-what-the-user-saw.md` |
 | `anew`, `needs no`, `suffices`; `so` after a general truth | State the rule; see `no-premise-so-consequence.md` |
 | `Let `, `Until now`, `instead of`, `although ` burying the bug | Point first; see `setup-then-point-is-a-tour.md` |
