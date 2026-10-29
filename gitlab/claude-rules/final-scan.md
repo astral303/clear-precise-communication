@@ -74,9 +74,10 @@ both are accurate.
 
 For each sentence in user docs and comments: what does the reader do
 differently for having read it? If they would learn it by doing the thing, or
-by reading the next line of code, delete it. Delete a key list on a row that
-uses the expand those keys already perform. Delete a tail that only says the
-new behavior matches behavior the product already had.
+by reading the next line of code, delete it. Delete a restatement of
+machinery that already works — a list of steps or settings its neighbors
+already share, or a tail saying the new behavior matches behavior the product
+already had ("as the other routes do").
 
 ## 6. Closed-excuse check
 

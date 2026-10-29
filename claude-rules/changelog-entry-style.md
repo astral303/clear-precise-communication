@@ -66,15 +66,15 @@ sentence.
 
 ## One bullet per distinct behavior
 
-When keys or surfaces share one behavior, one parent line names them all.
-When a key's behavior differs, including fallbacks, it gets its own bullet.
-Name a key only when the change is what that key does. A row that expands
-through keys that already expand other rows gets no key list.
+When components or surfaces share one behavior, one parent line names them
+all. When one's behavior differs, including fallbacks, it gets its own
+bullet. Name a component only when the change is what that component does.
+When one starts behaving as its neighbors already do, the entry names
+the change and skips that shared behavior.
 
 Do not add that the new behavior matches behavior the product already
-had ("as the top-level agent's do", "as it does in the main
-conversation"). The entry has already said what was wrong and what the
-reader now sees.
+had ("as the other routes do", "as the existing handler does"). The
+entry has already said what was wrong and what the reader now sees.
 
 Cut mechanism trivia the user cannot act on (gutter markers, internal metadata
 field names) unless the user must know it to use the change. User-visible
@@ -97,12 +97,12 @@ US spelling unless the project uses otherwise (`colored`). Capitalize
 - "The end state is more positive." A real bug still leads with the symptom.
   A one-condition fix may be the after-state, in one or two lines, because
   length signals importance.
-- "Two keys do the same kind of thing, so four sub-bullets." If the behavior
+- "Two components do the same kind of thing, so four sub-bullets." If the behavior
   is the same, one line. Own bullets only when the behavior differs.
-- "List the keys so the reader knows how to expand the new row." Those
-  keys already expand the other rows. Name the row that now truncates.
-- "It works like the existing row, so say as the top-level agent's do."
-  The entry already says what this row does.
+- "List the shared steps so the reader knows how to use it." Its neighbors
+  already work that way. Name what changed.
+- "It works like its neighbors, so say as the other routes do." The entry
+  already says what this one does.
 - "The plan filed it under Enhancements." The user's expectation decides
   the class, not the plan heading.
 

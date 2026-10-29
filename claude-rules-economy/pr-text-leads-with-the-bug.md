@@ -9,11 +9,14 @@ Commit subjects do not follow this order. They follow the
 defect that required it. A PR title can name the bug while the commit names
 the behavior that moved, not `Refactor the lookup`.
 
-Name a key when the change is what that key does, and name every such key.
-A key that did nothing before is `Add support for …`; a changed key is
-`ensure …`. A row that starts using an expand those keys already perform
-gets no key list. Use the changelog's noun. Two changes join with a
-semicolon, each with its own verb.
+Name a control or setting (a key, a mode, a route) only when the change
+is what that thing does, and name every such thing. A thing that did
+nothing before is `Add support for …`; a changed thing is `ensure …`.
+Do not re-explain machinery the change leaves unchanged: when one thing
+starts behaving as its neighbors already do, name the change, not
+the behavior they already share. When one route starts retrying, do not
+list the retry settings every route already shares. Use the changelog's noun. Two
+changes join with a semicolon, each with its own verb.
 
 | Do not write (mechanism) | Write (user-visible effect) |
 | --- | --- |
@@ -30,9 +33,9 @@ user-visible problem or effect, what the user sees now, the cause and the
 fix, and what was tested (two to four lines of coverage groups, no test
 names). When there is no template, use noun-phrase headings for those facts.
 
-Do not open with a symbol, file, or function. Name a status-bar mode on
-first use (`summary mode (tools·sum in the status bar)`). Do not add the
-keystroke that reaches it. Every old-vs-new contrast uses `now` or
+Do not open with a symbol, file, or function. Name a required mode or
+setting on first use (`dry-run`, `verbose`), not the keystroke or flag
+that reaches it. Every old-vs-new contrast uses `now` or
 `no longer`.
 
 A refactor with no user-visible change still titles the invariant that moved,

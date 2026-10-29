@@ -63,8 +63,9 @@ touched comments for every other phrasing. Replace those hits.
 
 For each sentence in docs and comments: what does the reader do differently
 for having read it? If they would learn it by doing the thing, or by reading
-the next line of code, delete it. Same for a key list on an existing expand,
-and for a tail that only matches behavior the product already had.
+the next line of code, delete it. Same for a restatement of machinery that
+already works — a list of steps or settings its neighbors already share,
+or an "as the other routes do" tail.
 
 ## 6. Closed-excuse check
 

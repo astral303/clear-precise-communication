@@ -32,12 +32,15 @@ wrong. A title that walks setup → `instead of` the bug is a tour. See
 `setup-then-point-is-a-tour.md`. Do not open a description with `Until now` or
 `Let `. Do not park the bug in `although` or in the last sentence.
 
-Name a key when the change is what that key does, and name every such key,
-not only the one that headlines. A key that did nothing before is `Add
-support for …`; a key whose behavior changed is `ensure …`. A row that
-starts using an expand those keys already perform gets no key list in the title, the description, or the changelog. Use the changelog's noun for the thing
-(`truncated messages`, not `bodies`). Two changes in one MR are joined
-with a semicolon, each with its own verb.
+Name a control or setting the change touches (a key, a mode, a config
+flag, or a route) only when the change is what that thing does, and name
+every such thing, not only the one that headlines. A thing that did
+nothing before is `Add support for …`; a thing whose behavior changed
+is `ensure …`. Do not list or re-explain machinery the change leaves
+unchanged: when one thing starts behaving as its neighbors already do, name
+the change, not the behavior they already share. When one route starts
+retrying, do not list the retry settings every route already shares. Use the changelog's noun for the thing. Two changes in one MR
+are joined with a semicolon, each with its own verb.
 
 ## Description order
 
@@ -57,11 +60,11 @@ section the template uses for each:
 When the repository has no template, use noun-phrase headings for those
 facts.
 
-Do not open with a symbol name, a file, or a function. If the status bar, a
-key, or a mode flag is required to understand the bug, explain it on first
-use by naming what it is: `summary mode (tools·sum in the status bar)`. Do
-not tell the reader how to reach it (`press t until …`); the MR describes
-the change, not how to operate the program.
+Do not open with a symbol name, a file, or a function. If a named mode,
+control, or setting is required to understand the bug, name what it is
+on first use, not the keystroke, flag, or command that reaches it: name
+the setting (`dry-run` mode, `verbose` logging), not how to turn it on. The
+MR describes the change, not how to operate the program.
 
 ## Old vs new
 
@@ -79,9 +82,8 @@ fix.
 
 - "The mechanism *is* the interesting part." It can come after the effect.
   It is not the title and not the first sentence.
-- "The row could not expand before, so list `→`, `←`, `Enter`, and a click."
-  Those keys already expand the other rows. The bug is that this row showed
-  whole.
+- "It didn't behave this way before, so list how it works."
+  Its neighbors already work that way. Name the change, not the shared behavior.
 - "The audience is other engineers, so symbols are fine." Engineers still need
   the symptom first. Symbols come after, defined on first use.
 - "This is a refactor with no user-visible change." The MR title still names
