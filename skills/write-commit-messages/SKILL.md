@@ -54,8 +54,12 @@ stand-alone substitute for the patch.
   write both.
 - Use bullets when implementation, rationale, and added tests are parallel
   facts. That is not a quota. Do not invent bullets to fill two-to-five.
-- Start each bullet with the invariant or reason, then the consequence. Do not
-  start with a mechanic the diff already shows.
+- Start each bullet with the change or behavioral consequence, followed by
+  the justifying invariant or reason. Name the change at the commit's scope
+  — a commit that moves one import says so. Do not narrate below that
+  scope: which call was added inside which method is what an open diff
+  says, and in a standalone log it reads finer than the reader is looking
+  for.
 - Keep paragraphs short and follow repository wrapping conventions; otherwise
   wrap around 72 to 80 characters.
 - Let prose order communicate purpose. Do not add `What:`, `Why:`, or similarly
@@ -96,9 +100,9 @@ Keep cursor ownership across coalesced soft-wrap spaces
 Exact-width separator rows merge into the following text. Cursor positions at
 the wrap boundary stay with the row.
 
-- A source range cannot represent both the bytes on a row and the earliest
-  cursor that row owns once the separator is gone, so the walk uses
-  `WrappedLine`.
+- The walk uses `WrappedLine`, as a source range cannot represent both the
+  bytes on a row and the earliest cursor that row owns, once the separator
+  is gone.
 - Rendering, navigation, and height share that wrapped-line model with
   editing.
 - Tests lock cursor ownership at the exact-width boundary: placement,
@@ -116,8 +120,8 @@ Preserve Markdown hard breaks through stream finalization
 Ordinary assistant lines keep trailing spaces through finalization, so
 completed content matches the streamed source.
 
-- Unchanged directive stripping does not rewrite the line, so whitespace
-  cleanup stays on lines the parser modifies.
+- Whitespace cleanup stays on lines the parser modifies, because unchanged
+  directive stripping does not rewrite the line.
 - Whitespace-only tail lines count as empty. Visible lines keep their spaces.
 - Tests lock hard-break preservation through finalization, including the
   no-reflow completion path.
