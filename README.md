@@ -76,8 +76,8 @@ tight. Use `--gitlab` for merge-request wording under [`gitlab/`](./gitlab/).
 
 | Artifact | GitHub | GitLab |
 | --- | ---: | ---: |
-| `claude-rules/` | 29.2k | 29.2k |
-| `claude-rules-economy/` | 12.2k | 12.2k |
+| `claude-rules/` | 30k | 30k |
+| `claude-rules-economy/` | 12.7k | 12.7k |
 
 GitHub is pull-request wording; GitLab is merge-request wording. Counts are
 ctok 5.0 (Claude 5).
@@ -85,7 +85,7 @@ ctok 5.0 (Claude 5).
 | Artifact | Claude 5 | Codex |
 | --- | ---: | ---: |
 | `rules/clear-precise-communication.md` | 2.2k | 1.4k |
-| `write-commit-messages` | 2.3k | 1.5k |
+| `write-commit-messages` | 2.4k | 1.5k |
 
 Codex counts are tiktoken o200k_base. Do not use them as a Claude estimate.
 Rebuild both tables with `uv run python tools/count_claude_tokens.py --table`.
