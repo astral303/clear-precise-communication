@@ -43,8 +43,9 @@ including comments this pass did not change:
 | `still` / `unchanged` claiming existing behavior is preserved | Cut |
 | `One that`, `One the`, `one whose`, `, for which ` | Noun first, then verb |
 | `you` / `your` in a title, commit, MR body, changelog, release note, issue, or comment | `the user`, unless it quotes a product string |
-| a verb whose object is the absence (*showed no time*, *stored no match*) | negate the verb, or name what is missing; see `name-it-from-what-the-user-saw.md` |
+| `that no ` / `when no ` plus `stores` / `stored` / `emits` naming an absence | what the user saw; see `name-it-from-what-the-user-saw.md` |
 | `anew`, `needs no`, `suffices`; `so` after a general truth | State the rule; see `no-premise-so-consequence.md` |
+| postverb `no <noun>` object: `found no`, `returns no`, `showed no`, `logged no` | negate the verb, or lead with `No <noun>`; see `negate-the-verb.md` |
 | `Let `, `Until now`, `instead of`, `although ` burying the bug | Point first; see `setup-then-point-is-a-tour.md` |
 | UUID-shaped IDs, absolute paths, screenshot timings in anything that leaves the machine | "In one example session, …"; see `machine-local-details-stay-local.md` |
 | branch names, `worth doing`, `plans/`, `PR A`, timings in a PR body | Cut |

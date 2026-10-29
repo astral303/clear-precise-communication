@@ -75,6 +75,7 @@ These have been offered and are rejected:
 - `comments-earn-their-place.md` — structure or a test first; comments only for what code cannot say.
 - `no-premise-so-consequence.md` — no `X, so Y` from a general truth; instruction in execution order.
 - `shortest-phrase-that-keeps-the-fact.md` — rewrite each phrase shorter and keep it unless a fact was lost; cut clauses that prove the check instead of stating the result.
+- `negate-the-verb.md` — the negative fact rides the verb (`didn't find any …`) or leads with `No <noun>`; never a postverb `no <noun>` object.
 - `second-person-only-in-product-text.md` — `you` in user docs and UI copy; `the user` in changelogs, titles, commits, and MR descriptions.
 - `subject-first-sentences.md` — noun then verb; do not park the fact in a relative (`One that`, `one whose`, `, for which `).
 - `name-the-type-not-a-nickname.md` — first mention is the identifier plus one clause of meaning.

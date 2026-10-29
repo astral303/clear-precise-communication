@@ -15,6 +15,18 @@ verb makes them build its object. Known shapes:
 | conditions trailed by `unless` | already ordered by `no-premise-so-consequence.md` |
 | `supports only X` vs `only supports X` | scope attachment, not polarity timing — different principle |
 
+### The two absence shapes (where the boundary sits)
+
+- POV construction — *that no X stores*, *when no X stored it* →
+  `name-it-from-what-the-user-saw.md`; the rewrite names what a
+  looker saw.
+- Verb whose object is the absence — *found no*, *showed no* →
+  `negate-the-verb.md`; the rewrite is mechanical, which matters for
+  misses in logs, tests, and internals where there is no looker.
+
+`a68756f` covered both with one rule; the split followed from the
+no-looker cases. New absence-shape work starts from this boundary.
+
 ## Authoring discipline that has repeatedly mattered
 
 - One rule file per rewrite, named for the rewrite ("negate the verb",
